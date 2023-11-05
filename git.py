@@ -9,7 +9,7 @@ Git- Git is a version control system
 First git bash download garni ani tes paxi
 # Git bash ma run garni
 1.$ cd c:
-2.$ cd /Users/Dell/Documents/python/
+2.$ cd Users/Dell/Documents/python/
 3.$ cd test/
 ma test folder ma aayem python ko ani
 4.$ git init
@@ -30,15 +30,21 @@ Repository banepaxi master branch create hunxa
 
  # life cycle of Git
  1. Untracked-Add the file (yo vaneko chai repo.. lai yo file exit garxa vanera tha hunna project ma hunxa but repo.. ma huna)
- 2.Stagged-commit
- 3.Unmodified-Edit the file
- 3.Modified
+ 2.Stagged- (git add .)vaneko chai track garni area ho
+  3.commit-(git commit -m 'new repo')- commit vaneko chai commit garni code ho yesle chai tyo add gardah feri chai track garni area ma lagxa and commit le chai k garxa vani add gardah feri  tyo state ma k k change vaxa vanera commit ma lekhni ho and hamile quattion vitra k change gareko lekhni ho
+ 3.Unmodified- commit garepaxi unmodified vayo (Edit the file) unmodified vaneko chai repository lai tha xa yo file ra folder xa vanera tara tesma k he change gareko xaina
+ 3.Modified-and hamile unmodified file ma k he change gareu vani chai modified file banxa nd tesma m dekhau xa
+untracked -vaneko chai tyo file and folder ma vako change haru lai track garni tyo chai hamile add garera stage ma lagera garxau stage area ma pugepaxi commit garxau ani unmodified  file banxa tyo vaneko chai track file ho  kunai pni change garnu vayo unmodified ma tyo chai modified file ho
+
+ani feri hamile git add . garni ani commit addd garni git commit -m '' quattotion vitra define garni k gchange gareko vanera
+
+
  jun chai folder haru track hunna teslai untracked vanxau ani add garera stage ma lagni and comit gare paxi tyo unmodified file banxa 
  jun chai track file ho and unmodified file lai change garem vani modified file banxa
  
- 5.$ git add .- A vanera aauxa jun chai stage area ma pugyo and untracked file ya unmodified file lai chai track filr ma lagyo mtlb stage ma
+ 5.$ git add .-(vaneko chai change lai add garni ho ) A vanera aauxa jun chai stage area ma pugyo and untracked file ya unmodified file lai chai track filr ma lagyo mtlb stage ma
 lagyo and stage vaneko chai track garni area ho ($ git add le chai add garni track ma lagxa mtlb stage ma)
-6. $ git commit-m 'new repo'-(-m= yo chai message ho) commit vaneko chai commit garni code ho and commit le chai add gareko ma k k change vako xa vanera define garni ho
+6. $ git commit-m 'new repo'-(vaeko chai k chnage gareko define garni lekhni)(-m= yo chai message ho) commit vaneko chai commit garni code ho and commit le chai add gareko ma k k change vako xa vanera define garni ho
 
 7. again $ git add .
 8.$ git commit-m 'new comment added'
@@ -282,6 +288,16 @@ install virtualenv-yesle chai env module create garxa
 virtualenv kusum (or env)- 
 env\scripts\activate
 pip install django- project ma djanjo chahene vayera  install vayo
+
+
+
+Git init-jun folder ya project lai git ma halnu parni ho jasko change  hARU TRACK GARNU XA tyo folder ma gayera git init garni. yo garesi yo folder chai git initialized vayera git ko reprository banxa 
+-jaba hami gitinit garxau taba hamro project ko repository banxa 
+-reprository ma hunxa multiple branches ani branch pni hamile create garnu parni hunxa
+-so yo repository vaneko chai hamro master branch ho or repository vaneko chai hamro project vayo ani yo project ma chai multuple branch hunxa and master branch vaneko chai mainbrach ho jun reprository create gardah banxa and branch vaneko chai copy ho
+- hamile dekheko xau green yo vaneko chai hamro every single file chai untracked file and untracked folder ho
+-jaba hamile gitinit gareu repository banyo ani master branch create vayo but yo file ra folder git ma xaina repository ma hunna
+-hamro file and foleder chai untracked xa ahile repository ma xaina untrack vaneko chai tyo file and folder chai change garni status ma xaina
 
 '''
 
