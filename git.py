@@ -149,7 +149,7 @@ $ git rm --cached git.txt(git.txt-file name) (yestoh garyo vani untracked file b
 $ git rm git.txt( yestoh garyo vani chai direct delete hunxa folder bata)
 
 # Ignore
-$touch .gitignore ((.)- vaneko chai hidden file ho)(bash vanni terminal ma chai naya file create garnu xa vani touch vanni command use garera . file ko name lekhnu parxa and hamile gitignore vanni file banayem)
+$touch .gitignore - vaneko chai hidden file ho)(bash vanni terminal ma chai naya file create garnu xa vani touch vanni command use garera . file ko name lekhnu parxa and hamile gitignore vanni file banayem)
 and hamilai git ignore garnu xa vani terminal le banako file chaheni hunxa so hamile gitignore file banayem
 $ git add .gitignore (gitignore chai add vayo repo ma)
 gitignore(yesko kam chai file and folder lai chai ignore garnu ho and repo.. ma vako jati pni file hunxa tyo track nai hudae na)
@@ -163,7 +163,8 @@ hamile gitignore kina use garxau vani paxi gyera django ma sab file lai track ga
 gitignore ma hamilai kunai pni folder ignore garnu xa vani hamile gitignore ma gayera /folder ko name lekhni example-/.py ani tya vaki file ra folder sab ignore hunxa
  aba hamilai .py ko folder vitra aru file ko euta matra ignore garnu xa vani tesko name gitignore ma gayera lekhni but tyo name aru pni folder ma xa vani tyo pni ignore hunxa so hamile tyo euta matra file lai ignore garnu lai hamile /foldername/file name lekhnu parini hunx example /.py/kusum
 
-
+untracked file lai matra git ignore garna milxa yedi track file xa vani teslai untrack garna  git rm --cached ani file ko name lekhni ani balla untrack hunxa ani git ignore garni
+ 
  git system ma hamile kina use garxau vani aba hamile dherae kura haru change garnu parni hunxa naya kura haru add garnu parni hunxa tyo sab kura haru lai chai track garnu parni hunxa kati khera k change hunxa sab or track garna lai like a super viser 
  another is collaboration
 
@@ -303,4 +304,4 @@ Git init-jun folder ya project lai git ma halnu parni ho jasko change  hARU TRAC
 
 '''
 
-# new 
+# new comment started
