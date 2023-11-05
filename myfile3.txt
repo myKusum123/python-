@@ -1,0 +1,3 @@
+56,45,67 # marks of student 1
+12,34,63 # marks of student 2
+13,64,23 # marks of student 3

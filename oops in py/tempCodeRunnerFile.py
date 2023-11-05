@@ -1,0 +1,1 @@
+print(car1.name,car1.speed,car1.weight)
