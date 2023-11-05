@@ -84,14 +84,14 @@ git commit-m'new Repo'- yesle chai add gardah tesma k k change vako xa vani herx
 git add . - vaneko chai change garni ho
 git commit-m'new Repo' -vaneko chai change gareko lai define garni ho
  '''
-'''hamile $ git add 'how to use git.t' (quatation vitra rakheko chai kina ki space xa 
-and yo file ma matra track gara vanera define garna  milxa repo ma..)
-$ git add git.txt' yo chai quotation vitra rakhnu pardae na kina ki space xaina'
+'''hamile $ git add 'how to use git.t' (quatation vitra rakheko chai euta file ko name ho and   space xa vani quattion ma rakhnu parxa
+and ani yo file ma matra track gara vanera define garna  milxa repo ma. tei vayera yo euta file matra add gareko.)
+$ git add git.txt- (git.txt) file chai quotation vitra rakhnu pardae na kina ki space xaina'
 yeti gare si chai stage ma add garxa specific ffile lai tes paxi chai commit garni
 $ git commit -m 'new files added' -and commit (define)garni ki kun files add garyo 
 vanera ani jun file lai define gareko xa teslai white ma dekhau xa
-git add - yo garyo vani chai specific file lai add garyo
-git add . - yo garyo vani chai sab filr lai add garxa
+git add git.py  - yo garyo vani chai specific file lai add garyo
+git add . - yo garyo vani chai sab file lai add garxa
 commit- ma chai k k change gareko xa sab define ramro sanga garnu parxa like naya 
 file haru ko name ''(double cotation ko citra rakhnu parxa) and commit gare paxi sab
 unmodified hunxa hunxa and tyo file vitra lekhepaxi modified hunxa
@@ -100,8 +100,9 @@ M- modified
 jun file lai add garnu xa  teslai $ git add 'git.txt' garni
 natra sab file add garnu xa vani $ git add . ' copied git defination  and 
 added in every file' rakhni
+
 $ git log- hamile jati pni  change gareko xau add gareko ra commit gareko xau xau teslai 
-herna ko lagi git log use garxau ani jati pni ahile gareko xau ni change girst ma dekhxau
+herna ko lagi git log use garxau ani jati pni ahile gareko xau ni change first ma dekhxau
 and end aayo vani q click garera quet garxau
 
 Repositery ma multiple branch create garna milxa and hamile jaba git init gareko hunxa
@@ -115,6 +116,7 @@ and module anusar ko hamile kam garni hunaale hamile xutta xuttai branch haru cr
 banauxauand sab module ya branch lai jati pni changes ya add garxau telai combine ya merge garera euta 
 whole project banau nu parxa tesaile master branch use gardae nau
 new brach ko lagi
+git branch matra garyo vani chai kun kun branch xa hami sanga tyo matra dekhauxa
  $ git branch fd(fd chai new branch ko name)
  aba new branch ma gayera kam garna ko lagi chai
  $ git checkout fd(fd branch ma jana ko lagi)- hamile jun branch ma kam garyo tei ma matra files ra changes basxa ra hunxa aru branch ma changes ma hunna
