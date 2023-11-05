@@ -135,7 +135,7 @@ $ git log- yaha samma chai ph ko heryo logbut master ma baseko chai
 # if we want fd code in master branch then
 $git checkout master
 $ git merge fd (yestoh gardah  chai hamilai yedi kunai file ma k he lekheko xa vani tesma hamilai incoming ki current ki accept all vanera sodhxa)
-then use $ git add.
+then use $ git add .
 $ git commit -m 'merged fd'
 
 # if we want to put master code in fd code then (jun branch ma merge garna lako ho tyo branch ma basera merge  garni
