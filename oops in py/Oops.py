@@ -194,16 +194,16 @@ p1.myfunc()
 
 # Magic Method or constructor- automatically run hunxa yedi certain kam gari raxau vani object sanga and magic method vaneko chai __init__class ko yestoh method h jun chai already class le banae sakeko method ho yo method chai automatic run hunxa jaba hami object certain kam garxau
 
-# class Car:
-#     def __init__(self,name ,speed ,weight): # yo __init__ method vaneko chai yestoh method ho class ko jun chai already define vae sakeko xa and objjet banau dah aafai run unxa# __init__ gareu vani chai already define name ho agi tw hamile set_name yesari name lekhera definegareko thiyeu
-#      self.name=name
-#      self.speed=speed
-#      self.weight=weight
-#     def __str__(self):#yo method chai taba run hunxa jaba hamile objectt lai print garxau ya value magxau teti khera yo method automatically run hunxa
-#        return self.name
-# car1=Car(name="fararii",speed='250km/hr', weight='15000kg')
-# # print(car1.name,car1.speed,car1.weight)
-# print(car1)
+class Car:
+    def __init__(self,name ,speed ,weight): # yo __init__ method vaneko chai yestoh method ho class ko jun chai already define vae sakeko xa and objjet banau dah aafai run unxa# __init__ gareu vani chai already define name ho agi tw hamile set_name yesari name lekhera definegareko thiyeu
+     self.name=name
+     self.speed=speed
+     self.weight=weight
+    def __str__(self):#yo method chai taba run hunxa jaba hamile objectt lai print garxau ya value magxau teti khera yo method automatically run hunxa
+       return self.name
+car1=Car(name="fararii",speed='250km/hr', weight='15000kg')
+# print(car1.name,car1.speed,car1.weight)
+print(car1)
 
 # Encapsulation
 
@@ -214,18 +214,18 @@ p1.myfunc()
 # user1=User('Kusum@1gmail.com', '1234')
 # print(user1._username)
 
-class User:# __double underscore(private attribute) aba yeslai kasari hatauni by using getter
-    def __init__(self, email, password):
-        self.__email=email
-        self.__password=password
-    def get_email(self):#(getter method) yedi hamile private attribute lai bahira show garnu paryo vani chai hamile calss vitra  get lai return garnu parni hunxa
-        return self.__email
-    def set_email(self,email):# setter method vaneko chai private attribute value lai chai change garni method ho
-        self.__email=email
-        self.get_email()# get_email return gareko
+# class User:# __double underscore(private attribute) aba yeslai kasari hatauni by using getter
+#     def __init__(self, email, password):
+#         self.__email=email
+#         self.__password=password
+#     def get_email(self):#(getter method) yedi hamile private attribute lai bahira show garnu paryo vani chai hamile calss vitra  get lai return garnu parni hunxa
+#         return self.__email
+#     def set_email(self,email):# setter method vaneko chai private attribute value lai chai change garni method ho
+#         self.__email=email
+#         self.get_email()# get_email return gareko
         
-user1=User('kanchan7@gmail.com','1234')
+# user1=User('kanchan7@gmail.com','1234')
+# # print(user1.get_email())
+# user1.set_email('a@gmail.com')
 # print(user1.get_email())
-user1.set_email('a@gmail.com')
-print(user1.get_email())
     

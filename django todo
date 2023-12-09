@@ -1,0 +1,978 @@
+Todo folder vitra pni todo file xa main project ko folder ho Todo 
+db.splites-django ko default database ho and local data base ho yovitra chai data store garxa and yeslai delete garyo vani data  harauxa
+
+env-le chai hamilai jati pni package module haru yo project ma chahinxa install garxi ho ani store gari rakhxa
+
+manage.py-le chai manage or maintain garxa project lai yo roject ma paxi gayera  app haru create garnu parni hunxa yo project lai server ma live garni pni manage.py kai kam ho and database ma define gareko field ra table haru lai pni integrate pni garxa
+manage.py le vitra sabai lekheko hunxa django le 
+
+
+aba hamile project kholni ani env\scripts\activate garni terminal ma
+env\scripts\activate kina gareko vani hamro project ma jati pni package haru install vako xa tyo sab lai activate garna ra run garna ko lagi natra yo project ma error aauxa
+
+python manage.py runserver le chai hamro  project lai run ya live gari raxa hamro local host ma
+http://127.0.0.1:8000/ yo ip address ma hunxa local host ma
+
+-yedi hamro powershell ma scripts run garna access deko xaina ya module not fount vaneoko xa vani hamile powershell kholni ani run as administrator garni  ani tyo garepaxi 
+(Set-ExecutionPolicy RemoteSigned) garepaxi Y click garni  yo gari sake[axi scripts garna dinxa
+
+*Todo Project
+-  __pycache__- cache file haru store garna ko lagi ho yesko eti kam xaina  folder haru detete garepni aafai create hunxa
+
+*__init__.py le chai todo folder  vitra ko part haru define gari rako hunxa
+
+*urls.py- euta trigerred ho jun chai ip address ma use garxau toh it certain part of program
+
+urls ma gayepaxi  tya vitra from (django.urls import path) vanni hunxa ani django chai hamile intsall gareko vayo ani tesvitra chai urls vani module xa ani urls vitra vaneko chai path xa and path le chai ip address ma huni urls lai define garxa
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+]
+urlpatterns vanera variable banau nu parxa
+urlpatterns vanni hunxa yo variable ko name pni change garnu vayena ani yo vitra chai list hunxa list of path hunxa ani server ma ip address ma  jati pni path haru define garnu parni hunxa jun chai yesma garxau. path function lai call garera  jun hamile import gareko xau define garera  euta string ('admin/')jun chai server ko paxadi add hunxa ani yo string enter gardah ya ys le chai certain string le chai certain part lai chai hit garxa(admin.site.urls)-yo chai function ho
+admin vaneko chai already intsall module ho admin vaneko chai django ko euta part ho ani tei  vayera admin.site.urls xa so admin ko vitra hi aru url haru xa url vitra aru path haruu xa
+
+simply hamile path haru banau xa ki like path lie call garera bracket vuta quetation use garera home lekhxau jun chai string ho ani yo chai server ko paxadi use hunxa ani enter gare paxi yo string le certai part lai hit garxa jun chai home.site.urls -yo vhai home ko function run huni vanera define garxxu ('home',home.site.urls ) , yo vaneko chai urls ko kura ho
+
+#Setting ma jau yesma chai BASE_DIR hunxa yo vaneko chai base directory kaha xa vanera define gareko base_dir vaneko chai Todo ho  yo chai dynamic hunxa yo kaha hunxa vanera euta code lekhera tha cvako and hamile BASE_DIR yo variable use garera Todo project ko files and folders lai chai setting ma lyauna milxa
+
+*and DEBUG=True taba rakhxau jaba hamile kunai project develop gareko xau vani ani error aauxa yedi hamile home path define garko xaina ani server paxadi home lekhera garyo vani error aauxa like pagenot found ani kina error dekhako pni vanxa but
+
+*hamile DEBUG=False lekheu vani ani ALLOWED_HOSTS = [] vitra ip address define gareu vani chai not found matra aauxa yesma chai error kina vako vanera define gardaina and DEBUG le chai true ya false boolean matra use garxa
+Debug true xa vani error dekhauxa ani false xa vani error dekhausdaena
+*
+ALLOWED_HOSTS = ['127.0.0.1']  vaneko chai ahile hamile kunchai ipaddress ma chai yo project run hunxa vanera chai dekhako local host ko access garna milxa
+'127.0.0.1' yo vaneko chai local hist ho ami aru host lekheu ani yesma run hudaena 
+
+*Installed app vaneko chai k k app install vako xa vanera admin auth session ,message intsall vako xa
+
+*Middleware vaneko chai request ko bich ma basni yesle jhai request lai check garxa authentaction xa ki nai , security xa i nai request lai herxa
+
+ROOT_URLCONF = 'ToDo.urls'
+*ROOT_URLCONF hamile setting.py le  jaba hami  runserver garxau ni manage.py le setting.py ,ma jati pni configuration xa ni tyo project lai enable gardinxa configuration anusar tyo project lai banauxa
+setting ma 'ToDo.urls' xa ni  todo folder jun chai base ma xa tyo folders ko urls  vitra jati pni path xa tyo pni herxa tei anusar ko different function run hunxa
+ 
+*Templates- hamile templates vabera folder banauxau ani tes vitra designing html data integration haru garxau ani tyo folder haru kaha xa file haru kaha xa vanera chai tempaltes vitra directory ma  define garxau yesko kam vaneko chai template lai render garera  website ma dekhau nu ho 
+
+*database
+-yo project ma chai database kun use hudaexa vanera pni setting ma define garxau ani engine vitra chai 
+django ko database vitra ko sqlite define gareko xa
+engine vaneko chai sqlite 3 ho and everytime jaba hami datastore garxau taba data base ko location ma chai data store hunxa
+
+*AUTH_PASSWORD_VALIDATORS-yo vaneko chai  password kastoh hunu parxa vanera validate garxa
+
+*STATIC_URL - vaneko chai static file haru kaha xa sstatic file vaneko chai image haru  css javascript haru etc so tini haru akha locate xa vanera static file bata thaha pauxau
+
+*asgi.py- yesko kam chai k ho vandah ni hamile le server lai live garxau ya project lai live garxau ni taba kun way ma  live garni asgi way ma live garni ki wsgi ma live garni wsgi vaneko chai synchronous  server ho yo vaneko chai yo project le k garxa wsgi.py file under ma live vaxa vani yo project le chai euta request linxa ani tyo anusar response dinxa ani feri arko euta request linxa ani tesko response dinxa (one request at a time) yedi asgi way ma live gareko xau vani chai it can handle multiple request ani multiple request anusar task garxa background ma ani palai pilo sabai request ko lagi response dinxa  yo chai background ma run hunxa  testoh type ko function pni django ma garna milxa hamile asgi under ma chai teslai run garnu parxa multiple request handle garxa vani matra asgi run garna milxa hamro django ma  yo chai level up garni kura ho  paxi gayera sikdah hunxa 
+
+aba hami euta app banau xau tesjko lagi chai terminal ma python manage.py startapp base(base baneko chai app ko name ho)  enter garni ani base name ko app chai create hunxa base chai kina create  gareko vani aba todo vaneko chai main project ho yesle chai sabai kura handle garxa ahile samma  setting yesle herxa server ma live yesle herxa urls yesle herxa tara jun coding ko partxa ni function , model haru create garni template haru create garni tyo chai yesle gardae na  yo lai chai xuttai euta app create garnu  parxa xuttai module create garnu parxa sso hamile jati pni database ma integrate garni kura ani data haru sanga control garni kura template ma render garni kura template lai website ma garni kura yaha gardae nau yeslai  chai euta startapp garera euta app create garnu parxa yo project ma base vitra herxa arkai file haru xa hamile feri bujjnu parxa
+
+*Base
+-from django.db import models
+*models.py caneko chai yes ma chai hami le database ma create garni table haru chai define garxau model ma hamile sabai database ma hunu parni table haru tyo table ma hunu  parni field define garni kam yo file vitra garxau
+
+*views.py
+-views vaneko chai functionality ko lagi ho template  haru lai render garni template ma data pathauni data haru lai create garni delete garni update garni yo sab yaha ggarxau
+
+*apps.py
+vaneko chai base app lai chai configure garni thau ho'  aba hamile base ko name change gareu vani apps.py ma pni name change garnu parni hunxa
+
+*admin.py
+vaneko chai jun hamro admin modules django ko install vako xa ni tyo sanga related  file ho admin vaneko xuttai project jastai ho  yesko xuttai site nai xa tya nira gayera data base ma vako jati pni table haru xa tyo hami herxau data haru jati ni create vaxa herxau  herni hamtra hoina sabai functionality nai garxau like update delete  create garni so  hamro jun database file xa ni yes vitra gayera k he garnu pardaena hamile admin ma gayera euta ramro ui ma ux ma kam garba milxa
+
+apps.py ko kura garau main project vaneko todo project honi apps.py ko kam chai main project ma relate garni vayo base app chai 
+todo ko manage.py le herdah feri setting.py ma herxa aru k he ma herdae na   setting ma herdah kahi pni base ko barema xa xaina ni so hamile  install app ma gayera base.apps.Baseconfig garni vaneko chai base app chai apps vita ko chai todo ko setting ma gayera call gareko
+
+
+Todo app
+# palnning and designing
+  # Todo table
+    *name
+    *description
+     *status
+
+planning and designing ma chai euta todo vanni tabe chahinxa  jasle chai todo table ko object haru store garxa todo data kina chaheyo vani hamro app ko kam nai tei ho todo create garni ani user haru le todo data ko status change gardinxa garyo ki nai vanera done ki not done toyo data lai store garna ko lagi user le garnu parni task ho tyo data create garna todo le table chainxa vanera plan gareko aba tyo data ma k k info rakhni vanera aba name vayo kun sub vanera ani description ma sub ko hw rakhni ani status chai done ki not done vanera
+
+integrate vaneko halnu
+
+aba hamile base ko models.py ma jani
+ani every single table ko lagihami every  class banauxao
+ class Todo # Todo vanni table xa so Todo vanni  class banayeu aba class vaneko chai blueprint ho tesbata chai object banxa yaha table caveko chai blue print ho table ma  data haru banauxau aba yo class vaneko normal class ho hamile chai ahile yestoh class banau nu parxa jun chai data interation hunxa database ma yesle integration garxa database ma gayera kam garxa 
+class Todo(models.Model):# models bata model vanni   class lai integrate garnu parxa 
+ yaha models vanni model import vako xa  pahila nai django le gari sakkeko xa hamile shrif yo model vitra model vanni class xa teslai integrate garni  yo chai aba noramal class bandae na yo chai database level samma  related hunxa aba hami k garxau vani jasari table define gareko xau todo chahenxa vanera tesari field haru pn define gareko thieuni
+aba field haru vaneko chai hamro name vayo description vayo ra arko status vayo
+# (name chai object ma huni field vayo)name vaneko chai  field vayo ani = paxi uta chai field ko nature ho aba yesle kastoh type ko data store garxa  ya kastoh type ko import linxa vanera define garnu parxa = garera models model vanne bata charfield vanni class lai use gareu charfield vaneko chai character field ho jun chai string store garni field ho yesma chai hamile euta function lai chai call garnu parxaani max-length vanera  ani 300 vaneko chai integer hoo jasle chai kati lamo string lai store garxa vanera ya 300 character lai store garxa vanera define gareko max-length lai hatayeu vani ahile chai error aaudae na but paxi data integrate gardah error aauxa  
+    description vanni pni field xa yesma chai hamile yesko nature define gardah feri yo tw charfield huna mildae na ni description ma tw essay lekhdina sakla ni multiple statement lekhna sakla tesaile charfield lekhyo vani tw mahile max-length define garnu parxa hamile lai length tw tha hudae na tei vayera yesko lagi hami TextField vanni  euta class use garxa  yesle chai huge length string use garxa 
+status chai done ra not done vanera garni ho so hamile CharField nai use garxau ani maxlength=50 tara yaha k error aauxa vani ni erroe vanndah pni exception k aauxa vani ni charfield le string store garxa like abc list 123 linxa but status ma tw j paye tei rakhni hoina nu duita matra data use garxau done ra not done so yesko lagi hamile choice pni rakhna milxa ki yo vitra certain data matra use hunxa 
+euta variable banau ni  tyo vita list banauni list vita tuple rakhni ani choices rakhni done ki not done vanera hamile choice chai kina yestoh vanako vani list vitra tuple and tuple vitra double choice ani arko data ko lagi arko tuple ani tuple vitra  vitra arko data yo kina gareko vani euta hunaxa read data ani arko hunxa write data  yo chai yaha herdah kun data dekhini ani database ma jada kheri chai  kun data jani vanera define gareko 
+status_list=[('done','done'),('not done','not done')]
+yo garera matra hudae na yo filed ma pni define garnu parni hunxa choices vanera jun a chai  hamile le variable banko rakhni
+aba second part vaneko chai database ma yo table janu paryo aba yaha matra define garera 
+hunna ni tw so yo database ma define garnu parxa (db.sqlite3) aba hamile database ma pathau
+na ko lagi hamile manage.py use garnu parni hunxa so hamile terminal ma gayera python manage.py 
+makemigrations garera enter click garni tes paxi migration for base vanera aauxa  yo vaneko chai yesle migration file 
+create gareko xa 0001 initial .py vanera  yesvitra chai k hunxa vani ni data base ma jadah 
+feri k k kura bannu parxa vanera define  huncxa tya nira hamile dekhna sakxa create a file 
+todo  field ma chai id name description and ststus ma chai choices xa done ra not done yo file chai data base ma integrate hunxa 
+yo file le chai k pni garxa vani track pni garxa jasrai git ma track hunxa ni every kura 
+haru change tesari nai model haru ma vako change yo file le track garxa  paxi hamile charfield 
+lai textfield field banau la re tyo change lai track garnu paryo ni database lai vannu 
+paryo ni every single kura lai chai change ra track garni kam chai migration ko 001_initial.py 
+le garxa yeslai pni delete garnu vayena initial vitra id hunxa jun hamile banakai xaina models.py 
+vitra tara 
+id vanni field xa vanera define gareko xa
+aba database ma chai k hunxa vani evrery single data chai primary key hunxa jasle chai 
+data lai define gareko hunxa simply index vako hunxa every single data chai so yo euta 
+certain data ho vanera define garna ko lagi  index number deko hunxa tyo number anusar le chai
+telai herna milxa update garna milxa delete garna milxa so primary key chai automatically 
+generate hunxa jun chai id field vanera baseko hunxa yesle chai k store garxa vani integer
+ store garxa (1234)  name description chai user le hanxa but id chai aafai generate hunxa aba 
+puranonid 1234 vaneko hunxa vani naya id chai 5 vanera baneko hunxa aba hamile 5 delete garyi vani
+arko data bandah 5 vanera bandae na 6 vanera banxa  so id vaneko chai euta unique field ho data ko 
+jasle chai euta single data chai define garxa database level ma  hamile hataunu hunna
+ but hamile k he change garna milxa vani hamilai id anusar data  lai index garna mn xaina re 
+ malai chai name anusar todo ko data haru lai index garnu xare vani hamile yaha primary key 
+ vanni function xa teslai chai true  gardah hunxa so hamile true nagardah nai base xa  kina k
+ name unique hudae na so id chai unique hunu parxa
+
+ migration le chai model ma vako change lai track garera  database ma integrate garxa(store)
+ yo file track garyo re aba change garyo re model ma naya kura thapyo re but track vayena re 
+ migration ma ya migration file nai generate vayena vani chai hamile setting ma installed apps 
+ ma rakheko xaina app ko name  
+
+change garera track garni chai migration file ho so  yo file lai integrate garni code chai 
+python manage.py migrate ho so migrate garnu parxa ani balla database ma gayera basxa euta matra
+migrate garnu oarni thiyo but sabai migration chai migrate vayo yo jati pni migration file xa ni 
+tini haru chai django le create gareko ani django lai chaheni migration ho database ma chaheni 
+django lai chaheni file haru ho without our permission django le database ma aafno migration file
+create gardaena python manage.py migrate gare paxi matra django lai chahini migration file integrate 
+garxa.
+
+hamile django documentation ma gayera herna milxa sab
+
+
+
+admin.py- hamile model banayesi admin ma kam garnu parini hunxa so admin.py chai admin panel 
+sanga related file ho admin panel vaneko chai  django ko xuttai project ho yesma chai hamro 
+database ma jati ota table baneko xa hamile herna milxa tyo table hariu vitra huni jati pni 
+data haru xan tyo sanga interact garna milxa hamile data lai control garna views ko part ma 
+aako xaina tei pni hamile data lai ahile control garna milxa admin panel bata so admin ;e 
+chai django le create gareko table haru user ko table haru jati pni hamile create gareko 
+table haru xa tini haru herni ho tes paxi tya gayera table vitra gayera table ko data 
+sanga interact garna milxa a  aba yo admin.py file chai admin panel sanga related file ho 
+admin.py ma gayera chai hamile first ma model register garxau admin panel ma ani matra hamile 
+yeslai admin panel ma dekhna sakxau without register hamile dekhna paudae nau yedi database 
+ma migrate vako xa vani pni maile data base ma vako table pni herna milxa vani tara actually ma 
+jati ota model lai register gareko xau ni admin .py ma teti ota model haru matra herna milxa 
+admin panel ma
+so tesko lagi hamile k lekhnu parxa vani admin.site.register() admin.py ma gayera admin.site 
+panel ma register gardaexau euta model lai
+()yaha vitra kun model register garni ho tyo model rakhni euta table lai model vanxa
+
+hamile admin.py ma register garnu paryo model lai so first import garnu paryo tyo model lai 
+tyo model jaha xa ni models.py ma xa ya arko app pni create garna milxa tya xare vani tyo model 
+vitra vako jati pni model xa kun model chaheyeko ho tyo model import garxau 
+(from .models import Todo) hamile yesari import garxau hamile models aagadi . kina gareko 
+vani . vaneko chai yo file bata two step bahira janu ho yo file ko bahira janxa ani tya nira  
+ko file sanga interact garna milxa . gardah  hami views migrations admin app jun file ma pni 
+jana milxa but hami models file ma janxau yedi hamilai dherae app xa ani kun app ma jani vanera 
+import gardah hamile two step .. bahira janu parni hunxa like two dot lekhera app ko name 
+lekhera ani models ko name lekhnu parni hunxa import garnu parni hunxa (from..base .models import Todo) 
+class ko name lekhnu parni hunxa but ahile hami sanga euta matra app xa so hamile. matra 
+garepugxa ani model import gardah hunxa
+hamile todo vanni class ya table import garim 
+admin.site.register(Todo) admin panel vaneko xuttai project ho jun chai user based system 
+ho already hamro project chai user based ra user based navako hunxa  aba hamro mindrisers 
+ma login nai garnu pardae na aafai aauxa so yo userbased system hoina login chahedae na jun 
+hamro danjo ko admin panel xa tyo already user based system ho so tesma jana ko lagi cahai 
+hamile user alreadt chahenxa hamile user ko kam tw gareko xaina user ko lagi table banako 
+xaina how can we create  yesko lagi chai manage.py ma chai euta command xa createsuper user
+ terminal ma gayera(python manage.py createsuser ) garera enter garni ani hamilae user name 
+ magxa django ko user name kasari vani hijo hamile migrate gardah migration file ko 0001_initial.pyn 
+ yo matra migrate vako thiyena ni django ko already migration thiyo  ni ani migrate garesi matra 
+ django le migrate garxa ni so tyo jati ota pni migration xa ni migration vaneko database 
+ ma table haru integrate garnu ho tyo sabai migration ma chai euta migration chai user 
+ migration hunxa user ko table hamile crearte nagare ni django le already create gareko xa 
+ hamile k he garnu pardae na user ko kam tw difficult hunxa ni session chaheyo token haru 
+ chaheyo
+user le login garepaxi kati ber samma system ma basxa
+ 
+user ko table chai django le migrate gardah creategari sakeko hunxa hamile create garnu 
+pardae na user ko kam complex pni hunxa hamile banau na garo hunxa  django le hamlai garo 
+navaus vanerauser alerady banae deko hunxa teivayera create super user gardah chai k command 
+k hunxa vani user ma pni normal user hoina ki super user
+ko create garni command run hunxa super user vaneko chai jasle sabai access pauxa yo system 
+ma jasla j pni garna pauxa yesle naya user lai delete garna pauxa tesai le data haru lai majale 
+delete garna milxa yesai garera admin panel ma pni login garna pauxa django ma kastoh khale user 
+hunxa vani duita euta hunxa super user ani arko hunxa user super user le cchai sabai kura 
+garna milyo ani admin panel ma pni login garna milyo ani user haru le chai certain permission 
+pauxa  certain model haru matra pauxa tesma interact matra garxa super user create gardae
+ xau kina vani sabai  ko acces chaheyo ni tw aba maile name rakhdiadmin ani gmail rakhdi
+  admin@gmail.com ani password ma rakhde 1234  enter click gari ani again password magxa 
+  feri tei password halni ani tya nira certain error but yeslai hamile bypass garna sakxau
+   by useing y
+now super user create vayo
+
+
+ekchoti feri explain garum tw hai admin panel ma chai data ase ko kam garnu parxa without 
+using data base data base vitra gayera change gari rakhna naparos ra database vitra gayera 
+table haru lai  herna ko lagi garo hunxa it is a hard process tei vayera admin panel vaneko
+ chai euta xuttai project ho jun chai django le create gareko hunxa tes vitra gayera chai
+  hamile table haru hernu parni hunxa tya vita gayera data haru hernu parxa tesko lagi chai 
+  admin.py file xa jati ota table haru admin panel ma  hernu xa  admin.py ma gayera register 
+  garnu parxa register garna ko lagi model bata import garni ani register garna tesai garera 
+   user ko kura gare user ko table chai already create hunxa django ma migration gardah chai 
+   hamile user cahi kina use garna lako django ko admin panel vaneko cuttai project ho tyo 
+   vaneko user based system ho  tesma  chai user haru le matra login garera  kam garnna pauxa
+    user ma pni hamro super user le kam garna pauxa tesko lagi chai hamile user create gareko 
+    python manage.py createsuperuser command use  garera email password username halera super 
+user create gareu username ra password lai yad rakhni ani env lai activate garera python manage.py
+ runserver garera teslai copy garera website ma paste garni
+
+urls vaneko ipaddress paxi connect huni euta string ho webbrowser ma ipaddress lekhyo vani 
+locate hunxa ani tyo project ma \ garera paxadi lekhni path chai urls ho  urls ma already 
+euta string xa yo chai k ho vani admin panel lai connect garni path  ho jun chai django le 
+create gareko xa aba hamile webbrowser ma gayera ipaddress haler paxadi \layera admin\ garyo vani
+ hamile username ra password dekhna pauxau
+(http://127.0.0.1:8000/admin/) login garnu vanxa userbased system ho ani yesko lagi hamile user 
+create gari sakyo super user le access pauxa admin panel ko simple user le tw acess paudae na 
+so aba username ra password halni ani login garni hami aayeu admin panel tes vitra jadah jati 
+pni link dekhxau ni yo link haru vaneko chai database ma vako table haru ho and groups ra user 
+vaneko django le already create gareko ho groups vaneko chai permision ko lagi use hunxa users 
+vaneko chai django le chai already create garxa yedi hamro userbased system hos ya nahos table 
+already create gardinxa aba hamile chalauni ki nai tyo hami ma var parxa tyo table kati khera 
+use hunxa vani yedi hamro userbased system ho yedi user haru le login garaudah  tyo table use 
+garxau yedi yo table vita user xa vani matra loginsuccessful navaye invalid login garna ko lafi 
+tala chai hamro base ra todo dekhxau base vaneko chai  tyo app jaha chai yo model chai register
+ vako xa ya jaha chai tyo model xa  base vitra xa todo ani todo nai table ho jaha database ma 
+ hunxa  tya click gardah chai khali xa khali kina xa  vani yo area ma chai hamro yo table ma 
+ hunijati ota pni data haru xa ani aactually django ma chai  object haru hunxa yaha admin panel 
+ma chi object haru hunxa so yo class ani table vitra jati ota pni object hunxa yaha list hunxa ahile tw 
+hamile k he pni create garni kam gareko xaina so  0 todos vanera aako xa tara admin panel ma sabai 
+kura garna minlxa database level ma data haru lai delete garni data haru lai herni data haru lai 
+update garni so tyo garna milxa by doing add todo tyo garepaxi hamile create garna milxa hamile 
+todo class ma jati pni feirld haru define gareko xa tyo define garna milxa  tyo field anusar tyo 
+field ko nature anusar input barxa yo input bar ko nature kastoh x vani tyo field ko nature define 
+gareko xa testai xa aba name field xa name field vaneko char field ho  yesma hami j pni rakhxa number 
+characte symbol (do your assignment ) vanera name ko input bar ma lekhni
+arko vaneko description field xa tsma hamile text field rakheko xau char field ma chai 
+maxlength define garnu parxa max length vaneko chai yeti lamo string chai yesle store 
+garxa hamile 300 max length 300 rakheko xa yo vandah badi cahracter badi rakhyo vani error 
+aauxa tyo error  lai rokna mildae na  hamile 300 vandah badi haleu vani database ma error 
+
+aauxa 
+description ma chai textfield xa  yesma chai jati character number symbol rakheni hunxa but 
+yesma pni limitation chai xa defualt limitation but yesle chai charfield vandah chai bati 
+store garxa tei vayera hamile jati pni rakhna milxa status ma pni charfield  xa but choices 
+rakheko xa so yesma j paye tei rakhna mildae na yesma option xa choices xa  ani choices ma 
+done ki not done rakhni ani save garni ani yaha one dekhako xa yo chai id ho todo object 1 
+kina aako vani admin panel le chai  hamro models class sanga interact garxa so yesle object 
+chaheyo vani class sanga  interact garxa database lai call gardae na so model through hunxa 
+hamile data base sanga interact garna tw milxa but actualls  chai models through hunxa so tei 
+vayera model bata database bata data tandah feri chai database ma data bani sakyo todo object 
+ma tara models bata tandah chai as a object tabi raxa tei vayera todo ko object 1 dekheko 
+ each and every object ma euta k field xa vani id id chai autogenerate hunxa pk ho tyo id bata 
+ k hunxa vani euta object chai define hunxa id chai unique hunxa 1 id lai delete garyo vani 
+ chai aba arko id 1 arko id create gardah chai 1 id  hoina 2id  vaner aauxa delete garna chai 
+ select garni ani access ma gayera dete select garera go ma click garni aare you sure vanxa 
+ sure vanxa every data lai define gardah unique hunu paryo so id 1 2 hunxa yedi mile pk lai 
+ change pni garna milxa name pni rakha milxa but name haru tw eutai type ko hunxa aba database
+  ma same vayo vani error aauxa data lai define garna lako xa vani tyo field chai unique hunu 
+parxa tara email field lai pk rakhyo vani email field lai chai pk(primary key) banauna milyo tesai gari 
+admin  panel le chai model through dabase sanga interact garni ho yesle chai model bata call garxa
+data haru lai ani object banxa yad xa vani class ko object lai print gardah yesle k vanxa vani 
+main class todo object add this location vaner ram ko location dekhau thiyo so tyo ahile pni 
+testai vako ho but ram ko location ramro danga dekhako xaina  so tesko lagi hamile chanfe garna 
+ko lagi  hamile magic method use gareko thiyeu __str_ yesbata return gareko thiyeu kun way ma
+ object gary represent garni   
+
+#yini haru chai class ma use huni method ho so yeslai migrate gari rakhnu pardae na
+models.py ma jati ota pni change hunxa  teslai track garxa migration le andmigration le
+ chai data base ma pni telai as a change implement garxa tara
+def __str__(self) :
+        return (self.name)
+yo method tw data base ma use huni method hoina ni 
+yo tw class ma use huni method ho yestoh kind of method xa vani migrate gari rakhnu pardae 
+na kina ki yo class ko lagi  matra use hunxa database ko table ma use huni hoina  hai tei 
+vayera hamile migration garenau simply save garim  ani admin panel ma gayera reload garim  
+ani object tanyo ani object tandah model through tanyo ani model k vanyo vani yesko object 
+chai  name bata represent hunxa  yo object chai self.name bata represent hunxa. tesae garera 
+hamile dherae kura haru garna milxa hamro admin panel ma yeslai simply euta website banai dinu 
+milxa vanna le  data ko lagi matra aba data hamile kaha bata halxa admin panel bata euta super 
+user create hunxa tyo superuser lai create garera chai data  haru add hunxa yedi update granu 
+paryo vani xhai  hamile web browser ma gayera update garxau 
+
+
+
+    def __str__(self):#yo method chai taba run hunxa jaba hamile objectt lai print garxau 
+    ya value magxau teti khera yo method automatically run hunxa
+
+    def __init__(self,name ,speed ,weight): # yo __init__ method vaneko chai yestoh method 
+  ho class ko jun chai already define vae sakeko xa and objjet banau dah aafai run unxa
+  # __init__ gareu vani chai already define name ho agi tw hamile set_name yesari name lekhera definegareko thiyeu
+
+aba hami views ma janxau tya nira views.py file ma ani herxau k xa vanera render vanni django 
+ko shortcut models bata render vanni function chai already import vae sakyo yesko kam chai k 
+ho vani yesle chai templete lai render  garxa tya render ma arrow dejhau dah template name rakh 
+yo  request linxa ani template render garxa aba chai hami sidah template ma kam nagari views 
+ma kam garum  views banau na ko lagi chai duita tarika ko views hunxa euta chai function based
+ views and arko hunxa class based views ahile ko lagi hamile function based views banayem
+def home():
+   pass
+k hunxa vani yo euta normal function hoina yo vaneko view ho jaslai certain kam garxa according 
+to urls euta urls hunxa urls ko path hunxa yeslai ip address sanga hit garni bittikai certain 
+funtion run hunxa
+tyo certain function vanekai views ho jasari hamile admin click gardah feri admin rakhdah 
+feri enter gardah feri admin ko page aayo ni tyo vaneko admin  ko function haru hit vako  
+ yaha url pni change vae raxa ahmile add click gardah admin ko paxadi add aairaxa url ma 
+so every functionality ko lagi tyo page render garna ko lagi hos ki tesma vako data lai 
+delete garna ko lagi hos ki add garna ko lagi ho ki every functionality ko lagi url create 
+hunxa urls  hit gare paxi chai function chai hit garxa ani certain kam garxa ma chai home 
+vanni url banai dinxu ani tyo urls hit garni bittikai k aawos vani welcome to our homepage 
+vanera aaus urls le jaba function lai hit garxa ni taba chai url le k linxa vani request 
+linxa kina vani system haru ma huni vaneko server ma huni vaneko backend ma huni vaneko 
+request paxi response so request aauxa url through vani request ma dherae kura hunxa 
+paramater haru hunxa kun user le hit garyo vanera hunxa aba ahile tw  user ko kura ramro 
+sanag integerate  gare ko xaian so hamilae chai as a annomious user leko hunxa tara user 
+chai le ko hunxa sorequest leko hunxa url le function lai hit garxa views lai hit garxa 
+tei vayera yo view ma request parameter rakhna paryo ki  so first chai parameter request 
+chai hunu paraxa  kina vani url le chai views lai hit gardah chai request send gareko hunxa
+ kina  vane request anusar nai response hunu parni ho urls le request hanxa ani  yesle kam 
+ garxa ani yesle response pathau xa ani urls le aba hamile django http bata euta 
+import gari Httpresponse ahile chai hami yo use gari raxau paxi chai hami render use garxau 
+ahile chai templte ko kura xaina urls ra views ko kam xa so 
+from django.shortcuts import render
+from django.http import HttpResponse
+# Create your views here.
+def home(request):
+    return # kunai pni data lai return garnu xa vani response garxau
+httpresponse le chai k garxa vani string lai linxa as a input  and output chai web page ma 
+deliver gardinxa hai so frontend navaye pni as a response chai yesle dekhai dinxa 
+aba hamilai url chaheyo yo function ma tw urls le hit garni ho ani matra response pathauxa 
+so tesko lagi chai duita kura xa maim urls.py  ya setting but hamro views ko function lai 
+chai urls lai hit garni ho so aba urls ma jani ani  
+from base.views import home 
+views ko function ko urls  hit garni ho tei vayera hami le base app ko views ma gayera home 
+import garxau 
+ home function lai hit garnu paryo tyo  function urls ma hunu paryo ni tw hit garna ko lagi 
+tei vayera import gareko base app  bata views vani file xa tesbata  import gareko home function 
+tyo garesi path define garni
+path('admin/', admin.site.urls), # yo euta path vayo k vanxa string hunxa string hit garesi  
+function hit hunxa
+yo arko path ho string hunxa home /  yo hit gardah chai home function hit hunxa so aba hamile 
+web  browser ma gayera ipaddress paxi home lekhera enter garesi welcome to our home page aauxa
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path ('home/',home)
+
+
+# views kati khera banau ni urls  kati khera banau ni vanera question aaula so every time 
+hamilai euta request ko lagi response pathau nu xa vani teti khera
+euta view banau ni  home  request gardah chai hamilai welcome to our home page banau nu xa 
+ho home request ko lagi chai home view banaye tesai gari aba page banauxa re tesko lagi chai 
+about vanera arko view banau nu parxa tesko lagi request linai paryo kina vni  tesko xuttai 
+url banxa hai  yesma return garni http response ani tes paxixuttai view ko lagi xuttai url 
+chaheyo urls chahinxa so urls .py ma gayera , (comma)garera comma chai chahenxa kina vane 
+kist ho ani path banau ni about garni home sanga about lai pni import gari 
+for every request we made views kun kun request aauxa tei anusar views banau xau ani kastoh 
+function banau ni ho tei anusar views banau ni ho aba  urls ko name  pni home rakhxu vani home 
+ma j xa tei aauxa first ko kina ki urls ma line by line aauxa  home vetyo function hit garyo 
+function le return garx ani arko request  herxa 
+
+urls  chai unique hunu parxa yedi home xa vani k symbol rakhe hunxa home vaneko string ho 
+ for every function
+
+paxi gayera chai thulo system ma chai dherae app haru banu nu parxa ani dherai ota views banau 
+nu parxa home ra about matra hoina dherae kura tesko lagi urls pni milyo natra appps vitra 
+urls banayera  teslai chai main urls sanga  lai connect garna pni milyo
+ 
+aba chai app ma chai euta file create gareu  urls.py  jasari main project hunxa main urls.py 
+ma gayera pathc copy garera app ko urls.py ma paste garni ani urls.py ma jastai url apttern 
+banau ni ani tya nira home ra about ko path banau ni ani home ra bout pni import garni ani 
+main urls bata hatauni 
+
+arko urls ma chai
+from django.urls import path
+from base.views import home,about
+urlpatterns = [
+    path ('home/',home),
+    path('about/',about)
+]
+
+aba hamile web ma gayera ip address paxadi home gayro vani page not found vanxa  kina vani 
+main urls vaneko tw main project(Todo )ko nai honi tw setting ma ni yehe main urls xa ni 
+tw so aba setting ma gayera root r=urlconf ma base urls  tw garna milena ni tw kina vani 
+app tw dherae hunxa main project ko urls lai chai as a main core banai dini ho hai app 
+dherae xa vani yo urls tyo urls vanera kasari garni tei vayera so main project todo aba 
+aru app ko url lai connect garnko lagi main urls ma jani ani tya vako import path sangai
+, comma diyera include vanni function xa teslai include garni ani urls pattern ma path ("",include('base.urls')) 
+empty string xa vane chai  comma diyera include garni ani bracket vitra string banayera base.urls
+banau ni ip address paxi empty string haleko xa vani yo base.urls hit garni vanera vanxa 
+aba web ma gayera home reload garyo vani aauxa balla yesari hamile include garera jati ota 
+app xa ani jati ota app ko views ko lagi urls xa tyo app vitra urls banayera tyo urls lai 
+chai main urls sanga connect garera use garna milyo  yedi hamile empty string narakhi tyo 
+vitra home (ip address paxadi home) rakhyo vani reload gardah feri page not found aauxa 
+kina vani ip address paxi empty string  paxi base xa base vitra x=chai home xa so yesari  
+chae ho so ipaddress paxadi home lekhera ani matra dekhau xa 
+
+
+
+#main urls
+from django.contrib import admin
+from django.urls import path,include
+from base.views import home,about
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('',include('base.urls'))
+    
+]
+
+#base urls
+from django.urls import path
+from base.views import home,about
+
+urlpatterns = [
+    path('home/',home),
+    path('about/',about)
+    
+]
+
+# Template 
+Template banau na ko lagi chai hamile xuttai banau nu parni hunxa folder  template folder 
+chai app vitra banai rakhnu pardae na ya app vitra banau na pni milxa  
+Template folder banayera tes vitra index.html banau ni hamro template ma huni vaneko html 
+file haru matra ho css javascript hudae na srif  html file haru matra hunxa yo html file 
+kasari define vayo vani index lekhi ani .html lekhi  yesle chai html file banyo
+ani yes vira gayera html lekhni ani html:5 vanera aako xa tesma click garesi chai hamile 
+jati pni html file ma chahenxa before writing html code sabai aauxa html code lekhnu vandah aagadi yo kura chahenxa kun type ho  language k ho  meta data haru title k xa  head vitra chai meta character name title hunxa vani body vitra chai  sabai structure garxau html vaneko chai structure ko lagi ho ni tw website ma fronted dekhauna ko lagi ho so title ma chai home rakhi yo file chai home ko lagi ho yo file ma chai home ko kam garxa 
+body ko vitra aayera h1 lekhi aba <h1><h/>  yo tag lek chai define like h1 tag a tag  
+ul tag hunxa  h1 tag  vaneko chai k ho vani h1 vitra jati pnni data xa ni telai as a 
+heading define gardinxa yo html structure ma  so htl page chai yes vitra chai maile 
+structure define gardah yo jun h1 tag le chai yesvitra vako as a heading define gardinxa  
+j kura chai h1 vitra hunxa tyo chai ali kati thulo hunxa hamro page ma aba hamile h1 vita 
+Todo lekhxau main app ko name home page ma tw app ko name dekhau nu paryp so todo lekheu 
+tespaxi env lai actiavate garera run server gari tya nira web ma gayera ipaddress  rakhera / ma home 
+lekhni   html file tw banaye intex.html but welcome to our home page aayo  html file banayer 
+matra hunna yeslai pni katai connect garnu paryo aba hamile main appko setting ma gayera 
+database vanni area xa
+
+hamile jati pni configure garni kura xa tyo hami setting ma garxau django ma model huni vayo 
+views huni vo template huni vayo  so ttin talai configure garni nai setting ma ho aba model 
+lai configure garni database xa model ma huni jati oni kura xa kun database ma janxa
+
+views tw urls sanga connect xa  so main urls configure xa tesai gari template lai chai configure 
+garnu parxa tyo template chai render vaus use vaus hamro yo system ma tesko lgi chai template 
+vitra variable vita code xa ni tes ma  directories xa ni tyo matra change garni ho aru k 
+hechange garnu pardae na dries ma gayeraBase_Dir vanera (BASE_DIR?)
+Base _Dir vaneko chai yo chai euta variable ho josle chai base folder ko location nikalxa 
+Base folder hamro todo honi todo folder ko location nikalxa base_dir le ani todo locatio 
+ko vitra / garera tya nira templates anera folder hunxa  yesvitra nai template haru xa ba 
+Dirs variable ma BASE_DIR/'templates'  base_dir pni string nai hunxa so base_dir ma 
+templates string ma rakhni  yo gardah template chai configure vayo tara use ajhai samma 
+vako xaina ajhai kam garnu parni hunxa view ma model view template  structure ma model lai 
+configure garna setting ma hamile data base milaunu paryo view lai configure garna view tw 
+urls sanga connevct hunxa so url lai configure garnu paryo already vae sakkeo hunxa hami 
+bigardae nau template lai configure garna pni template ko dires ma aayera kun directery ma  xa vanera yaha define garni so base_dir vitra templates rakhni yedi hamile base app ko vitra template banako thiyo vani"base/templates" vanera define garnu parthiyo ani yedi arko template vanera banako vaye  comma garera  Base_dir garera arko templates rakhna milxa(BASE_DIR/'base/temlates',BASE_DIR/"templates garna milxa") tara ahile ko lagi euta matra folder xa templates ko tei pni base mai xa base_dirs todo ko ma templates vitra templates xa vanera define gareko aba configure garyo aba yeslai implement garum 
+templates le tw templates ko location haru define garni ho aba hamile configure gareu aba 
+use garum templates le tw templates ko location haru define garni ho yaha tw dherae ota 
+tenplates hunxa dherae maddhe index.html lai chai configure garum appp ma jam homepage ko 
+views,py ma gayera  home ma return render(request,"index.html") runserver gardah bold ma 
+todo vanera aayo  template file le cghai hamro web ma structure gardah chai h1 tag le chai 
+jun character jun string text hunxa teslai chai heading define garxa  so alikati thulo hunxa 
+bold hunxa hamile views.py ko home chai gayera return ma chai k gareko vani home vitra chai 
+return gari render function lai
+
+#render function vaneko chai yestoh function josle chai request linxa as a parameter ani tespaxi 
+html template lailinxa ani tespaxi jun template lai chai yesle as a parameter leko honi 
+yesle telai chai render gardinxa web ma dekhai dinxa jaba chai view hit hunxa aba k vayo 
+huni vani urls ko home/ urls  jasle chai home view lai hit garni vo home / define gareko 
+vayera hamro home lai hit garna pako ho home view kina banako vnai homepage lai render garna 
+ko lagi  homepage lai render kasari garni  request lai as a paramater lini paila suru home 
+view ma   ani tei request lai chai render vanni funtion ma pathai dini ani kun template lai 
+chai render garni ya website ma dekhauni tyo urls hit garni vanera views.py ma return gardini 
+ano Todo bold aauxa 
+urls ra view banau nu ko chai karan hunxa  k karan xa vani hamro home page tw hunai  paryo 
+hamile fulls tack banai rako ho hamro yo ahile ko project todoproject fullstack ho so yesma 
+home page tw hunai paryo user le website kholni bittikai homepage tw dekhnu paryo ni homepage 
+dekhauna ko lagi chai hamro render function use garnu paryo render function vaneko chai yestoh 
+function ho jun chai views.py ma import vae sakeko hunxa   render function kaha use garni tw 
+render  function use garni home view ma  home ko name j rakhdah pni hunxa but home rakhyo vane 
+herne bittikai bujxau nitw homepage ko lagi ho vanera yo view ani home page render garna ko lagi 
+render function use garyo hompage ko lagi html file xa  fronted xa tyo render garyo ani tyo chai home ko view ma halyo tara user le kasari request garni userle yo function lai kasari hit garni aba user e hit garna pawos vanera nai tw urls banako ho so urls  cahi yaha string banau ni ho jun chai path vitr ahunxa ani yo  string chai ip address ko paxadi use hunxa  jaba tyo string hit garca taba chai string le jun function lai target gare ko xa
+tyo function hit garxa function hit gardah feri render gardinxa 
+
+views ra urls banauna ko chai jaran hunxa  tei karan le chai banau xau view ra urls chai ahile 
+hamro karan xa hompage dekhau na ko lagi home view ani tyo view lai use huni hit  garna ko lagi 
+chai home url tara hami le home/ lekheko xa tya chai base/home kina gareko tw kina ki hamile 
+main app todo ko urls  ko path ma chai string vitra base lekheko xau ni tw tei vayera ani 
+manage.py le jaba setting ma herxa usle bujxa ki yo urls vitra chai  sabai urls main urls 
+ma xa vani bujxa ni tw so sabai urla ma chai   k xa vani adimn le chai panel  admin panel 
+herni vayo  base le chai base vitra ko urls vitra lai chai herna dinxa base/ le chai base 
+ko urls lai hit gari rako xa so base vitra pni url lai hit garnu paryo so base vitra  pni 
+about vanni xa yesle we do programming vanera run garxa ani home lechai home lai render garni 
+kam garxa
+tya mathi chai home vanera aako xa kin vani title ma home vanera lekheko thiyeu 
+
+# Setting and manage.py
+project lai run garna ko lagi chai hami manage.py use garxau manage.py le k garxa vani sbai 
+kura handle garrxa yo project ko  handle kasari garxa vani setting ma gayera herxa  yo project 
+ko k k xa setting yo  project ma hamro   Base_Dir chai variable ho jasle chai base ko path 
+bujauxa ani manage.py  le debug is true vanera dekhyo vani yo project ma k he error aayo 
+vani dekhauxa but fase vayo vani k error ho dekhau dae na allowed host vaneko chai kun ip 
+address ma chai yo project lai allow garna dini  yo bahek arko ip address ma rakhnu xa vani 
+allowed host ma ip address lai , diyeera arko ip addresss lekhni tesai gari install app vaneko 
+chai yaha nira app install vako  jatai tya dekhna sakxau admin panel ko app  aba hamile euta aap 
+create gareko thiyeu tyo create garera matra hunna teslai main  app ma pni connect garnu paryo 
+so gamile setting ma gayera apps install ma chai 'base.apps.baseconfig' garnu parxa base config chai 
+kaha  aayo vani base ko apps.py ko class name  base app lai chai yesari define garxau main 
+project ma  manage.py le bujxa ki base app pni xa vanera yeslai pni herxa middleware vaneko 
+chai request ko middle ma basni request lai chai check garni manage.py le chai jati pni middelware xa tei anusar 
+le request check garxa Rooturls chai yo project ko main urls hunxa 
+urls vaneko chai ip address paxadi use huni string jastoh huni function lai chai hit garni  
+main urls lai chai sakesamma chnage nagarni templates chai hami aagja kam gari rakheko xau 
+templates ma chai hamile k garxau vani kahanira chai hamro template file xa tyo define garxau 
+Wsgi application vaneko chai yo  project lai server lai halda feri use huni kura ho data base 
+vaneko chai aba model views ma  view ko lagi url ani template ko lagi templates vani variable 
+xa ani xa ani model ko lagi chai database .kun database  ko lagi yo project le  data store gari 
+raxa vanera define garni ahile ko lagi chai base_dir ko  todo ko vitra dbsquilite vanni thau ma 
+data stoore vae rako xa  teesai gari 
+AUTH_PASSWORD_VALIDATORS   user ko lagi model alerady create gari sakyo django le user vaneko 
+k ho username password email data ho  jun chai authentication ko lagi use hunxa logingarna  logout 
+garna user le register garda chai password rakhdah feri chai jastoh hamro website haru ma password 
+rakhdah feri minimum length this much ani symbol matra halna mildae na char hunuparxa yo validation 
+xa ni tei validation ho hai yesm ahuni chai  register gardah password kastoh hunxa vanera validate 
+garni ho
+
+Static url vaneko chai hamro  image hamro javascript  aru file haru kaha store gareko xa 
+vanera define garxaa  aba  yo file haru ko kura kastoh xa vani ni aba hamile yeslai hamro 
+system vitra pni use garna sakxau so maile views vitra euta  function lai ni  file lai use 
+garna sakxau so yaha nira static folder banayera tei nira store garxau k database ma tw 
+file haru store tw hunxa tei pni hamile yaha nira folder banayera chai image file  ya javascript 
+lai chai store garxa javascript tw database(db.squlitr) ma tw jadae na tei vayera ya ha hamile 
+static folder vanera define gareko
+project ma kastoh setting a tei lai define garni ho  hamile jun jun change gareko xau tei 
+matra change gare pugxa aru k he change garnu pardae na aru bitraea advance vayera garaula
+
+Templates lai configure garna ko lagi setting ma templates xa ani kaha nira templates xa 
+teti matra haldini ho base_dir vitra ya templates vani folder vitra xa vanera define garni 
+manage,py le bujxa ki templates vitra file haru xa views ma chai hamile tya vitra vako kunai 
+pni html file lai call garna milyo  render ma render ma chai kina call garni vani chai render 
+function le chai html file chai web ma dekhau xa so tesko lagi use garxau django ko function 
+ho render teslai chai views vitra use gari rakheko xau aba yeslai chai function(def home ani return render function ho) 
+vitra use garnu ko karan chai k ho vani user le urls lai hit garxa tyo certain urls lai hit 
+gardah feri viewslai hit hunu paryo jun chai index.htnl fime render huni function xa tesko lagi 
+url chai home/ ho
+
+Dirs=Directries
+
+#aba hami query ko part herxau  django ma orm vanni xa orm vaneko object relation manager 
+ hamro database ma data hunxa table anusar ko data hunxa tara model ma yaha nira project 
+ machai model ma chai claass anusar ko object hunxa model le chai k garxa vani database 
+ bata data  lerauxa  tara as a object lerauxa ani tyo karari lerauxa   kasari query garni 
+ query vaneko chai table haru lai data bata lerau ni kam  fielter garni kam  aba specific 
+ data lai lyauni kam data lai create garni kam tyo hamile query bata garxau so malai chai 
+ kchaheyo vani homepage machai todo ma jati pni object haru xa  tyo sbai list garnu
+ paryo re kina vani homepage ma chai user le dekhnu paryo ki usle garnu parni kam haru kati xa
+ tesko lagi euta variable banau ni views.py ma 
+ todo_objects= ToDo.object.all()
+ and import garni from .models import Todo
+ hijo hamile admin panel ma herdah feri admin panel ,a data haru dekhai rathiyo kasari dekhai rako 
+ thiyo vani as a object kina dekhai rathiyo vani admin panel le model lai vanxa model le database
+ bata as a  object provide garxa admin panel lai  models bata chai hamile data tannu parni vayera
+  todo_objects= ToDo.object.all()
+ chai from .models import ToDo gareko ho telai chai hamile  todo_object variable ma rakhni
+object vanni part xa ni to chai ToDo vanni part vitra vako properties ho kasari vayo properties hamro
+Todo vaneko euta Simple class hoina  simple class ma ctw object vani properties nai xaina yo  tw 
+euta class ho jun le chai inherit garxa models.model class ko models.model ma chai euta object vanni properties
+xa jasle chai k garxa vani yo jun class ma object vanera use gari raxau ni yesma chai hamile orm
+ko query use garna milxa so  properties vitra pni all vannni method aru pni method haru xa teslai 
+chai use garera jati pni object xa teslai chai  query haru garni ho so yo all vanni method le chai
+k garxa vani todo class ani jati pni class ma hamile object. all gareko xa tesma chia jati ota 
+ object xa teslai chai  return garnxa todo class ma jati ota pni object xa teslai retuurn garxa
+ all le sabbai tes paxi return garxa vanera variable ma rakhi ani maile ajhai euta object gari
+tesko name rakhi content and as a dictionary rakhi
+content={'todo':todo_object} yaha chai hamile query gareko ho all the object of class todo
+yaha chai k gareko vani euta variable banaye content vanni ani dictionary banaye ani tesma key todo ani value 
+chai jati ota pni object return vayera aauxa tyo sabai object lai chai as a value rakhxa aba kasaeri
+rakhxa vani return gardah feri yesle as a list ma return garxa so list ma sabai object hunxa ani list ma data hunu vayo
+ ani tei list ma sabai update hunxa ani list ma sabai data huni vayo list lai as a key ani as a 
+ value rakhi  ani tala requesr index html paxi ,comma garera  context= content rakhi yo
+ chai kina gareko vani hamile sabai object lai tanera matra vayena tyo object lai frontend ma
+ dekhau nu pni paryo user le homepage ma jani bittikai usko todo hernu xa tesko ko lagi sabai object
+ haru lai tannu paryo tyo sabai object lai fronted lai dekhaunu paryo so fronted ma dekhau na ko lagi
+  pahila suru chai hamile dictionary banako jasko key chai todo ani value chai object  banako ho
+  ani tyo dictionary lai chai pass gareko ho as a context yo render ma hudah feri ni website ma load hunxa
+  taba ni tesma chai context jun value pathako xa ni pass hunxa k html file vitra so conttext nai ho
+  paramater name aru garna mildae na tespaxi chai tya nira dictionary nai hunu parxa  hamile directly
+   todo  yo garesi hamro html file ma render hunxa context ko data haru pni aauxa aba hamile k 
+   garni vani body vitra h1 tala curle bracket{}garni ani tyo vitra %   % garni for i in loop garni  
+
+   {% for i in todo %}
+        {{i}}
+   {% endfor %}
+yo k gareko vani yo html ko code hoina yo python  ko code ho for i in todo ani vitra chai i vanera 
+rakheko xa yedi hamile django ma templates render gardah chai django ko templates ma chai html file ma 
+chao python ko code pni use garna sakxau python ko code kina use gareko vani hamro context ma k aairaxa list
+of object aairaxa tyo list of object ma chai every single object lai dekhaunu paryo ni so for
+looop lagaunu paryo for loop kina lagauna milxa vani django ma render vako html file ho sodjango le chai k allow 
+garxa vani python ko code pni allow garxa html file vitra tara yettikai use garna mildae na hamile
+ jasari python ko file ma for i in vanera garthiyo ni tesari garna mildae na yo gardah feri simply euta text hunxa
+yesko k he meaning nai xaina meaning  ful banau na ko lagi python ko code banu na ko lagi yedi 
+hamile key words haru banako xa vani percentage percentage harera for i in todo ani todo kin agarekoo
+vani todo key ho k todo key laichai hamile call  garnu paryo for i in todo vanera yo chai kastoh
+vayo vandah feri Todo= [] todo chai list of data vayo  k as a key pass hudai xa tara yaha nira
+chai asa variable hunxa tes ma chai list of  vayo hamile get garera todo lai chinu pardae na
+simple i in todo pardah hunx tyo chai as a variable basxa ani {{}} yes vitra chai k garxu vani jati ota object 
+ma chai loop lagaudae janxa tetiota object lai chai yaha nira print gari raxa
+print gardah chai print function use gari rakhnu pardae na ahmile simply variable lai rakhdini i variable lai
+ i variable iterate hudae jani vayo iterate hudae jani bittikai yelai pni use hudae jani vayo
+so i chai yaha nira lekhdae jani vayo aba i variable ho i tw keyword hoina so variable lai call gardah
+{{}}yo use garxau ani yo vitra variable use garxau yeti mai sakinthiyo tara yaha hamile {% %}
+garera end for vanera yo loop lai end garnu parni hunxa
+
+context ma pahila hamile object lai query garyo all method le.object chai orm  object manager ko lsgi use hunxa
+base manager ho yele chai object haru lai manage garxa class ko object lai yesma euta method xa all jasma chai k garxa
+vani jati ota pni object xa teslai return gardinxa return garera variable ma rakhyo content vanni
+ani tesko value rakhyo key todo garera key j pni rakhera hamilr yo chai kina rakheko vani hamile
+html  file ma yo object haru lai pathau na lako kina vani user le dekhauxa html file ma pathaudah
+tyo data lai chai hamile value ma pathau nu parxa with using a key euta key use garera data lai chai pathau nu
+parxa as a dictionary tyo dictionary lai chai hamile content text paramater ma  pathaye paxi tyo html
+file vitra object haru aauxa tyo object haru aayesi teslai use garnu paryo use garna ko lagi
+hamile for loop lagako   kina vani list of object hunxa ani every single object lai dekhauna ko
+lagi loop launu parni hunxa loop lagauna kina milxa vani hamro django bata  render huni template
+ho so django le chai python program lai chai alllow gardinxa java script le jastae javascript
+ pni yestai yestai garxa ni loop haru layera data haru rrnder garxa tei garna milaxa
+ python ko lagi chai tyo garna ko lagi hamile curle bracket use garera percentage  percentage  vitra  chai
+ for i in todo percentage percentage chai kina use gareko vani {} bracet %% vaneko python ko key
+ word use gardah chai %% ra curle bracket use garxam for vaneko tw python ko keyword ho
+ ani  for i in todo ani todo vaneko chai key huni vayo jasma chai value huni vayo object tyo 
+ todo =[] yesrai baseko hunxa ANI tesma loop lagaudah chai i lai chai print gari raxa print gardah
+ chai srif variable lekhdah hunxa sabai kura print hunxa yo website ma yaha templates ma j lekhyo tei
+ print hunxa  web ma peint vanna le display huni ho i vaneko vhai variable ho i matra lekhyo vani
+  i  matra aauxa  variable vanera call garna ko lagi chqi {{}} curle base use garxau ani  matra
+variable ma html  python ko code for loop lai chai end garnu parxa tesai le {%%}garera endfor lekhera 
+end garnu parxa yo garera reload gardah chai hello vanera aauxa hello vanera euta matra kina aayo
+vanera sochnu vako xa vani hamile admin vitra gayera todo vani data vitra gayo vani hello dekhxau
+tyomatra data xa object lai matra print gardae xu object lai matra print gardah feri aauni
+vaneko todo class ko main object vanera aauxa tara string representation maile  self.name gari raxu model ma
+tesko object chai hello xa tei vayera hello vanera aai raxa yedi maile arko  object rakhi re
+banyera  status done garera save gari reload garesi complete your assignment vanera aauxa
+hello sangai aayo tei vayera  {{i}} yesma  </br> yesle chai break garxa python ko break jastai
+yo variable paxi  variable print hunxa ani arko variable aauni vayo yo {{i}}variable vaneko chai
+object ho ani hamile  k garna milxa object ko attribute lai call garna milxa  {{i.name }} garum
+name aauxa tespaxi {{i.description }}garum description aauxa  testai garera {{i.status}} status attribute call hunxa euta 
+object ko lagi i.name i.description i.status hunxa  break huni vayo ani arko object ko lagi yestai
+aba sabai hamro web ma dekhna sakxau aba yeslai ajhai ramro dekhna ko lagi maile | yestoh lagaye {{i.name }} | yes paxi  yestai 
+gardae jani sab ma tya | aauxa ali kati ramro lagyo  hami ajhai ramro banau xau ahile ko lagi chai
+yeti data aairaxa ni fronted ma
+
+Revise
+
+hamro django ma huni vayo  model view  templete huni vayo tei anusar hami le  kam garnu parxa hamile 
+fronted ra backend nai gari raxau aba hamile backend chai kaha gareko xau vani model ma garxau
+ani tes paxi view ma pni garxau data lai control garxau view chai duitai garxa fronted pni garxa 
+backend pni garxa hai ani template le chai fronted ko kamm garxa kina ki template ma chai html 
+ko file haru hunxa  html ko file vaneko fronted ho models.py chai ali confusion xa  yesma class
+banai raxau tes paxi calss ma chai euta name diyeu ani  parathensis ma models.model haleu yo gardah 
+feri chai euta todo table vanera define  hunxa     kina vani models chai yaha  project ma chai models
+as a database ko role kheli rako hunxa tara database tw actually arkai hunxa ni tw  like mys ql dbsquilite
+ model lie as a  database tw mannai mildae na ni tw so kind of abstract ho k main  chai database
+ vayo yo chai abstract vayo ani tespaxi yesma chai hamile table define garxau  field haru define garxau
+  ani todo class garxau field garxau ani models.model model class use garesi matra yo table maninxa
+  juncahi database sanga related xa database sanga relate huna lagi chai models.model gareko tesvitra
+  chai fiels define grana ko lagi chai tesko name tesko type jati ota pni field  hunu parxa yo
+  table bata banni data ma tyo field haru define garni yo table ko object ma chai  yo field haru hunu paryo simple
+   class and object nai ho django pni class and object  ma kam garxa yo  class vayo blueprint vayo ani yesbata object 
+banxa class hamro database ma janxa ani databas ma table banxa table anusar data haru banxa
+ani yo database ma kasari janxa hamile migration garxau ani mirgration file gbanxa ani yele chai
+k garxa vani file ya folder le chai yo model vitra jati pni models.model xa lekhera inherit vako class 
+xa ni tini haru ma huni change haru ani naya  models.model garera yedi naya table baneko so jati pni
+change xa ni jasari git ma log garxa ni tesari migration le chai log rakhxa kina log rakhxa vani
+data base lai vannu paryo ni tw ahile  chai naya euta table create gareko xa so database pni create
+gara hai vanera database lai vanxa yedi purano table lai todo tw purano table ho ni tw data base
+ma migrate vae sakyo yeslai chai maile name lai chai Todo name lekhi re yo chai aba euta change vayo 
+aba yo data aba python.manage.py makemigration garni gardah feri sodhxa y ra n garxa ani n vanyo
+vani  chai sab delete hunxa name ko ani y garyo vani chai tyo name ko thau ma todo name replace
+hunxa ani n lekhni tespaxi default magxa  aba 1 click garni ani default value magxa tes paxi string vitra todo lekhni kina ki yo char field ho tesaile 
+string vitra todo lekheko "todo" gardah chai migration file banyo ani tya k magxa vani
+remove field name from todo dekhxau add field todo_name to todo dekhna sakxau  ani default ahile samma jati
+ota object  value baneko xa tesko defauld value chai todo rakha vaneko xa hai yestoh chai migration
+ko kam ho  ani python manage.py migrate garesi tyo database ma integrate hunxa tyo chai model ko kam
+vayo sabai database ra data lai kasari rakhni so orgnixe  le karari architect garni vanera define
+garni ho models le views le chai sabai control garni ho data lai ani tes paxi fronted lai
+control garni ho duitai lai control garni ho datalai pni fronted lai pni tesko lagi hamile query bujyo
+yedi malai sabai object lyaunu xa sabai data lyaunu xa vani euta field ko table ko vani chai tyo table lai
+from model  import garni ani  table.object.all()garni(table vaneoko chai todo class avayo hai) all method
+le chai jati ota pni object xa yo class ko tyo sabai lai lyauxa aba yesko vitra under ma chai 
+sql ko query code nai use vaeraxa hamile lai chai  aaudae na tei vayera django ko orm bujeko 
+yesle chai simplify gardinxa ani tyo jati pni object aauxa teslai return  garxa yes variable ma haleko
+ ani yo data haru lai chai fronted ma dekhaunu paryo tei vayera as a context pass gardeko ani 
+ fronted ma dekekhau na ko lagi chai python ko code use gareko python ko code use gardah feri 
+ keyword use garni vani {%%} ani variable call garni ho vani chai  {{}} name 
+
+
+#Designing part
+fronted ko part design gardah feri hamile css  javascript garxau tara teti deep ma janu pardae na
+fronted ma chai dherae project haru hamile banau dae banau dae nau django ma yestai simple 
+simple chai banau xau simple simple ma tw hamile bootstrap use garna milyo css javascript 
+padhera time waste garnu  vandah simple bootstrap use gardini fronted ma intrest xa vani 
+chai padhha hunxa yo xuttai topic hunxa hamile simply bootstrap use garxau  
+# Bootstrap
+hamile bootstrap kasari use garni vani django ma template halera 
+simple bootstrap vaneko google ma gayera bootstrap search garni ani tya nira euta link dinxa 
+tyo link click garni docs ma jani  docs ma gayera download am jani ani download ma gayesi 
+tya nira CDN via jsDelivr xa  tya nira gayera tyo duita link lai copy garni copy to click 
+vaneko xa ani aafno template ma gayera head ko vitra paste garni tyo garise tyo tala ko 
+duita linklai copy  garni ani body ko muni rakhni ani save garni yeti garesi env lai  activate 
+gardini ani py.runserver gardini ani web ma gayera link copy garni ani text ko style nai 
+change vayo yo chai kasari vani vani bootstrap integrate gareko vayera yestoh font aayo vani 
+chai hamro bootstrap chai integrate vayo yo template ko lagi matra ho aba arko html file banayo 
+vani tesari nai bootstrai bata link lai copy garera rakhnu parxa maile cahai k garna lako vani 
+yini haru lai chai table ma dekhau na lako table ma dekhau dah ramro dekhxa ni  tesko lagi k 
+garim vani bootstrap ma janxau   ani docs ma jani docs ma gayera seach bar ma jani ani lekhni 
+table tablelekhdah tables  vanera overview ma aayo aba bootstrap ko use garnu vaneko karan k ho 
+vani yehe  ho k yesle sabai kura banai sakyo design haru hamile integrate garni matra ho aba 
+hamilai kastoh khale table banau na mn xa tyo code copy garni ani paste garni html file ma 
+forloop paxi aba  yo table ko parta xa ni yo head t head tbody yo sabai vaneko html ko tag 
+haru ho yo html kocode ho code lai haluka bujum
+
+#Html code
+1 <table></table>
+table vanni tag ma chai hamile table banau ni ho
+table vanni tag le define garxa table banau na lako vanera table ma k hunxa vandah feri table  
+hunxa euta heading ani arko body part
+
+2<th> </th>
+heading part vaneko chai column ko head k aba like sn k serial number hola name hola description 
+hola aba tyo column ko head ko part ma chai every single  data ko value haru basxa so tesrai 
+nai table ko structure hunxa html ma 
+
+3 <thead> </thead>
+heading ko part ma chai ajhai euta thead vanera part xa ani yo chai alikati bold hunxa 
+
+<tbody</tbody>
+body ma j j value hunxa ni tyo heading ko under ma jastai ki tbody vanera tag xa ani tesma 
+chai rom xa k <tr></tr> rom vaneko euta single rom heading ma euta ron ani row ma pahile xa 
+hastah thesd
+
+Table gardah chai yo sabai part chai table ma parxa yo chai euta table ho vanera define hunxa 
+html ma <thead ma chai  first ko top ko bold letter ko part parxa kasari parxa vani table row 
+le define garxaso yo euta table row vayo tes vitra euta table head arko table head ani arko 
+able head tala chai ajhai table body ma chai row xa ajhai tannai   heading ma tw euta matra 
+row hunxa body ma tw multiple rom hunxa ni josle chai column ko heading define garxa jasle 
+chai yo column ko heading yo arko column ko heading yo yo vanera body ma tw multiple hunxa 
+yo euta row arko row tei vayera html ma multiple row xa yaha jati pni multiple row xa ni th 
+tag use gareko xa ani bold hunxa data  k ani jati pni aru data xa tyo td use gareko xa tyo 
+use gardah chai tini haru bold hudae na hamile tw table use gardah feri 
+# first last  handle hoina ni tw id vanera hunxa  bject ko id ani primary key ho jasle chai 
+object define garxa yo id le chai yo id lai hit garxa define garxa id column chai  yo ani 
+arko hunxa name description status ani ajhai arko code yestai chaheyo vani alt down garera 
+tyo code lai copy garera paste garna sakxau ani column banau na milyo jati ota data cahhenxa 
+tei anusar  column rakhni ho ni tw yo garesi reload gardah id name description ani status 
+garera bold ma aauxa first ma  aba k garum vani jati pni data xa ni tyo data vaneko static 
+data ho un html ma lekhi sakyo as a bootstrap bata copy garera as it is ni aauxa ni tw hamile 
+sttaic data dekhauni hoina ni tw object data dekhauni honi tw  jun chai hami data base ma 
+create garxau ani ani hamile pni hoin user le create garxa  data base basxa ani database ma 
+basesi hami le tya bata tanera user lai dekhai dini aba name discription ma rakhera aba tesko 
+lagi k garni vani jati pni row xa tes bata chai euta row chai rakhum kina rakhum vandah feri 
+hamile object anusar ko table row banau nu parxa so hamile for loop layera jati pni  loop 
+lagai raxam iterate  gardah feri table row banma na tyo  every object ko lagi every table row
+bandae janxa so  tya nira ko row xa teslai cut gardeh for loop lai mathi ani tala tr  ko mathi 
+rkhdim ani tya ko end for lai tala lyam/tr paxi end for lekhni j hos tbody vitra lekhni  jati 
+choti i chai iterate hudae janxa teti choti chai yo table row chai create hudae janxa hamro 
+2 aayo kina ki hamro 2 xa data chai ajhai pni static nai xa jati choti object ma iterate hudae 
+janxa table row create garxa teti choti object ko attribute lai pni tw call garnu paryo ni 
+tw kin avane i le tw object matra iterate garni ho ni tw so yah 1 ko satta ma {{i.id}} use 
+garera i  ko id attribute garni so variable ya fer object lai call garera object ko attribute 
+lai call garera  {{}} use garxau so data lai call gardah yestaoh garxau tara keyword use garxau 
+vani chai  hami %% use garxau   hamile if els pni banau na milxa ani a aba mark ma <td>i.name </td> 
+<td>description </td> <td> status</td> sabai palo palo lekhni  reload gardah  dekhau xa change 
+heading ma jasari column xa tesari nai rakhnu parxa every choti iterate gardah cahi table loop 
+create hunxa so every object ko lagi chai table loop create hudae id anme description status 
+basxa yedi hamile admin panel ma gayera todo delete garyo vani web nira pni delelte hunu paryo 
+admin panel ma gayera todo ko object herna  herdah feri chai  todo attribute has no attribute 
+name vanera aako xa kina vane admin panel le list gardah chai model bata object haru list garxa 
+so model ma string representaion rakheko xa string.name ani agi change gareo thiyo toso_name 
+vanera so yesrai error aako so hamile error haru chai yad rakhnu parxa  yedi object ma call 
+gari rako attribute xaina vani object ma attribute error aauxa aba admin panel ma gayera object 
+lai delete garyo vani tya webma run gardah pni delete hunxa aba djhango single page attribute 
+hoina fronted ma react vanni xa euta single page so every time chai hamile reload gardai garnu 
+parxa  tesko lagi javascript pni use garna milxa aba chai k agrum vane dekhi yaha nira todo 
+herni matra hoina ation vanera pni paos ya feri yestoh garum hamile  todo lai list garne tw banayem
+aba create garni banai dim hamro database ya model ma every single model ko lagi cahai 4 ota operation
+hunxa todo model vayo arko model ko lagi arko model vayo jati pni model ra table haru xa tyo sab
+ko lagi 4 ota operation crud operation tyo vaneko create retrip update delete yeti 4 ota option
+chai perform garnai parxa hamile every single model ko object sanga create garnu parxa retrip vaneko
+ get garni ho dekhauni ho list garni ho  ani update vaneko edit garni ho euta object lai edit
+ garni ho testai garera euta object lai delete garni ho CRUD operation 4 ota operation hunxa every
+ single object ma ra model haru ma aba hamile retrip ko part tw gareu listing garni kam  hamile
+ create ra update garni kam tw gareko xaina detete garni part pni gareko xaina aba euta process
+ xa hai yo process lai follow garum euta model banayem tyo model ko lagi chai crud operation chai 
+ hunnai peryo crud operation chai hunai parxa model banayesi exception huna  sakxa kunai ko lagi
+ chai create nabanm vanera huna  sakxa most of the time every model ko lagi crud operation huna
+
+#Create
+Create  garna ko lagi chai hamile euta template banam  user le create garni tw fronted batai ho
+so admin panel le tw hoina admin panel ma tw super user le matra ho jun chai hami ho kina hami 
+matra vani  yedi user yaha aayo vani j pni garna milxa user user lai chai adsmin panel ma aauna
+dinu vayena haile  fronted mai dinu parni hunxa access so euta templte banam name create.html
+ani html garera sab part nikalni ani title ma rakhni create todo body ma chai lekhi h1 tag ani
+create lekhim h1 vaneko chai heading part jasle chai bold dekhau xa yo chai heading part chai 
+yo ho vanera dekhauna aba bootstrap ma gaye download ma gayera   Cs ko two lonk lai copy garni 
+kina copy garni vaneko designing ko part lai chai start garum vanera ani tyo copy gareko chai 
+title vandah mathi rakhni ani arko copy garera </body> tala paste garni aba yo  indention rakhdah pni hunxa narakhdah
+pni hunxa ani euta extension xa prettier yo use garyo vani chai jati choti hamile save garxau teti choti aafai
+milera basxa  aba html file banayo  teslai herna ra use garna ko lagi chai user le url tw paunu
+paryo url matra payera hunna view hit garnu paryo jasle chai  html file lai render garnu paryo
+paila suru view banam about lai change gardi name rakhdi create ani url ma pni about hatayera create
+rakhni  so  user le create ma jadah feri usle todo create garni html file ma jawos duita urls ma 
+about hatauni aba k garni vani create gardah chai form chaheyo ni tw tes paxi form bata user 
+le data pathai dinxa ani hamile bacckend ma basera tya k k data aauxa tyo data lai liyera yelai as a objcet ani database ma
+data create garni so form banau ni form banau na ko lagi bootstrap ma jani download ma jani ani
+form vanera search garni ani aauxa form tes ma form over view aauxa  aba yini haru ma kastoh kastoh
+type ko input chahenxa vani aba jastai admin panel ma xa ni admin panel ma name ko lagi simple 
+ input xa ni ani description ko lagi extend huni chaheyo ni input bar thulo ni huni sano pni huna
+ status ko lagi option wala chaheyo yestoh ko lagi hamile bootstrap ma khojum
+input ko lagi chai  email address wala   email address samma form  ko lai copy garum code ani  create.html
+ma aayera h1 tag paxi teslai paste garum ani form tag lai closa garnu parxa  so </from> vanera 
+close garni ani tes paxi yo form ho yesma dherae kura thappnu xa ahile ko lagi chai  reload garera
+herum email address vanera aayo  aba yesma nachaheni vaneko will never share email address tyo
+delete handim ani hamro email address hoina label mathi ko lai define garna label vanera aauxa email address
+ label ko kam chai input bar lai identify garni ani hamro tw name xa ni ani type id vanera xa 
+ hamro type email hoina text vanera rakhdini email rakhyo vani aru type ko data linna
+ @gmail wala matra linxa so tesaile text rakhkeo  input ko lagi chai input vanni xa  id change garxau
+ id lai rakhdinxau name  ani class chai change gardae nau for ma ni name rakhxau id name  rakhesi chai
+ input ko id chai name vayo jasri hamro object lai define garna  id hunxa ni yo input ma chai html vari ma chai
+  id define garna chai name hunxa tesai gari chai label ma chai for xa parameter tesle chai k garxa
+  vani  id linxa so yo lable le tw tyo input lai target garni ho ni tw so id name chai for ma rakhni
+  label ko kam target garna ko lagi matra ho aba name ko lagi tw vayo aba hamilae thulo description ko lagi
+chaheyo so text area vanera nai xa search ma gayera text area lekhni tesko lagi chai extend table 
+ho gahatau na milxa badau na pni milxa ani tyo code lai copy garni ani div vitra paste gardini
+div vaneko chai container ho k jasle chai multi line of html ko code lai chai group garera rakhxa
+ so euta group vayo jasle chai name ko code lai cover garxa jun yo chai text area ho jhun chai
+ description ko lagi cover garxxa so hami id vaneko define garna ho so description rakhdin xau
+ ani place holder xa placeholder vaneko chai aba placeholder ko kam xaina delete gardini
+ aba hamile descripton ko jastai innput bar vitra nai rakhna ko lagi chai name ra description chai
+ k garni vani label lai chai muni ani input type lai chai mathi rakhdini input ma chai yesari basyo
+ comment ma hamile description rakhdini label chai  select ko lagi pni hami le dekhi sakyo done ra
+ not done teslai copy garni  tes paxi div ko muni rakhni  id ma sttus rakhdinxau for ma pni 
+ status vanera rakhdinxau  label ma pni status rakhdinxau aba option chai kasari rakhdinxau vani ni
+  option chai hamro data base ma jati ota pni option xa teti ota nai rakhni  hamro database ma 
+  duita matra option xa ni tyo field ko lagi status field ko lagi done ra not done tyo duita chai
+  as a option rakhdiniho  select ko vitra duita option ma so euta rakhum done ani arko rakhum not done
+  ani save garim  ani reload garyo vani  aayo done ra not done hamile class floating chai hatayera class=mb-3
+  matra rakhni hamile mb3 garyo vani chai margin hunxa k margin vaneko  hamro container ma xa label ra input deeo ko'
+  vitra container ko ori pari surrounding hunxa telai  hamile right click garera inspect garyo vani
+   dekhauxa margin ko barema  margin padding boder xa  tesma dekhna sakxau  so margin  liyo vani 
+   chai k hunxa vani tyo data ko ori pari space hunxa tyo space le chai mathiko todo name ra description
+    contaiiner ya data lai chai ali kati tada tada rakhxa  aba hami button  banai dim   aba hamile form vanni lekhni
+    search garni bootstrap ma  ani  tyo button ko lai copy garni ani paste gardini  hai  type 
+    submit vayo class le chai btn btn primary xa tesle chai k garxa vani  design dinxa submit vane
+    ko name vayo hami yesma jati pni integrate huni kura xa hahmi voli garxau 
+
+# ajha chai hamile like designing ko part tw gari sakim aba database ma data create huni kam tw baki xa
+aba activate garni env python manage.py runserver garni fronted ma responsive vanni kura hunxa jati  sano banayo teti adjust hundae jani designing aba hamile data halda feri data chai gako xa tara kaha gaxa thaxaiana so yesko lagi euta funcationality chahenxa so aba hamile le k garnu parxa vani euta method vanni rakhnu parxa method rakhyo POST yo form le chai post garxa vaneko method vannale chai actually http method ho hamro  fronted le backend sanga interact gardah chai aba template chai fronted ho and base app chai backend ho sabai yehe xa backend pni xa fronted pni xa duitai yehe xa duita yehe vaye pni fronted le backend sanga interact gardah feri usle chai hhhtp request garxa http request gare babat matra fronted le chai interact garxa backend  Yo post vaneko chai high level ko method ho according to backend kina vandah yo vaneko data create garnu ho  create vaneko high level ko priority so euta http method chai pathau nu parxa post ho vanera  hai tespaxi {% csrf_token %} vanera pass garnu parxa  jaba hamile yo form submit garxau ni taba yo  form jun view bata render bata vako honi http post request janxa ani yo request janu ko karan k ho vani  method post garera matra post request janxa pathau nu ko karan chai post vaneko high level method  priority ho  ani yo html  bata post pathaunu parxa ektw  arko vaneko jaba post request pathauxa taba  chai yo data haru jati pni xa html file bata yo data haru create vaxa ni tyo chai request sangai janxa aba tyo aauxa csrf token vanni csrf token vaneko jaba user le system ma interact gareko xa ni taba chai django le token create gardinxa csrf token ani csrf toden hudah cghai k hunxa vani jaba  user le post request garxa taba token magxa djhango le django le aafai le create pni gardeko hunxa  so every user jo jo le hamro system chalako xa uni haruko trash chai basi rako hunxa csrf token ma ani tes post gardah chai jun user le post gareko ho tyo user ko chai csrf token post request sanga janu parxa so tei vayera  yo gareko
+ aba create.html ko input textarea ra select euta paramaterter ma name thapxau so input type ma chai name  thapcau name="name" ani text area ma pni last ma name="description" ani select class ma pni name='status'aba views ma jani ani create ko tala if request.method=='POST': ani print(request.POST.get('name'))
+
+ajha chai hamile name thapapeko sbai ma input ma name thapiyo ani text ma name = descriptopn thapiyo testai select ma chai name=status thapiyo  ani method rakhyo post so  hamile backend lai chai vannu parxa kun type ko request gari rako vanera yo form bata vanera fronted bata yesbata get request  pni garnu milxa
+ yo form bata tara hamile get garna lako ho tw data haina hamile tw form bata post garna lako honi tw hamile form bata create garna lako so httprequest haru madhye ma dherae ota request xa tesma parxa GET POST PUT DELETE PATCH parxa get vaneko retrip garnu ho crud operation ma post garnu vaneko create garnnu ho ani put vaneko update garnu ho ani detete vaneko delete garnu ho so  fronted le chai http request garepaxi paxi matra tyo request anusar backend ma kam hunxa backend le chai yo request anusar ko function create garnu parxa yo fronted ma create.html ko firm ma post vanni data halyo user le data halera submit gardah feri yo form le backend ma kun request gari raxa vanera define gareko method ma  ani  yele post request gari raxa kina vani crud operation ma create part here raxau create garna ko lagi chai http post vanni pathaunu paryo yo form  bata tei anusar csrf token xa csrf  token vaneko chai kind of authentication token jastai ho yo user le valid xa yo user ko catch ma chai csrf token xa yo chai bahira ko user hoina yele chai request garna pauxa vanera valid garna authentication garna ko lagi kina vani yo kastoh vani ni bank haru ko system banaye re mobile banking haru banayo re aba mobile banking haru ma k hunxa vani user le login garyo re login gardah user ko session use garera aru manxr le request garna thali rathiyo  tara aba csrf token use gardah chai django ma free hunxa system ma cash ma csrf token xa vani matra uh chai euta valid user ho vanera painxa  so tei ho yesko karan chai authentication ko lagi main chai kina haleko vani jaba hami post request garxau ni  taba chai jun view ma  html file chai render vaeraxa ni tyo view ma feri request janxa aba url chahedae na aba chai fronted le directly request handinxa url bina ani  request hamro post xa yedi  hamile request method post pathako xa fronted bata vani chai hamile k gariraxau print gari raxau name so pahila suru hamro request ma chai dherae kura hunxa url  bata request aauxa tyo request ma dherae kura hunxa kun user le request gareko hunxa tyo hunxa yedi hami user based system ho vani usr le k request gari raxa tyo pni hunxa so  request vitra method vanera xa method le chai define garxa k method 
+chai request gari rako xa vanera user le fronted bata jaba post request hunxa ni hamile check garni k yedi fronted le post request garxa vani hamile data create garni vanera views.py ma hamile define garni yo hamile if condindion layera print garera kina yestoh condition layem vani hamile yaha data create garnia matra gareko xam tw xaina ni yaha render pni gari raxau ni tw so yedi hamile condition hatayera save garera terminal  lai run gari vani ani web browser ma gayera create url lai hit garyo vani none vanera aairaxa kina vandah feri hamile yaha print (request.post.get(name)) vani raxaa ani  hamile tw post gari rako hoina hai url lai hit gareko honi tw ani url hit gardah tw data pathauxau tw pathaudae nau ni url hit garera tw page lai render garna lako ho so data pathau ni part tw baki xa so tei vayera hamile k garna lako vani yaha duita kam hudae xa euta tw render hudae xa arko data create hudae xa hamile request lai check garni k yedi request method post ho vani matra data create garni vanera ani url hit gardah tw request method hit hudae na teti  khera chai data create huni part hudae na tei vayera condition rakheko
+hamile post gardah feri j j data haru pathako xa nia as a dictionary aauxa tes bata hamile get garna milxa as a specific dictionary data lai so post request (request.post)gardah chai post ma dictionary aako hunxa jasbata chai hamile euta key ko lagi value nikalna milxa ani kasari key ra value banera aako hunxa vani ahile  ko lagi chai hamro fronted ma form xa ani  hamile jun jun ma name thapeko xa ni  yini haru chai key banera baseko hunxan so  tei vayera name thapeko yo haru chai key banera baseko hunxa post ma ani yo request method post vayo vani matra aru request gardah post vanera aaudah dictionary aaudae na  tei vayera hamile request  method lai check garna pni condition rakheko xau aru request gardah post ma data nai aaudae na na tyo vayesi error aauna sakxaani maile print gardah feri aba url hit gardah feri none vanera aaudae na kina ki post aairaxa ani return render vanni part xa render gardinxa page lai aba submit garni do homework  submit gardah matra form le request garxa kya  request chai tyo garxa jun chai form ma method ma define gareko xa  yaha post vaneko xa post request aayo hamile request lai check gareu request method post ho vitra aayo ani print garyo request.post.get((name)) so post request gareko xa vanipost ma dictionary aauxa data fronted bata  fronted le pathauxa so yo dictionary bata get garni name kina vandah feri fronted ma name ko name pathauna ko lagi tw input ma name xa so nae as a key basi rako hunxa posrt ko dictionary ma so teslai call garesi
+
+if request.method=='POST'
+ print(request.POST.get('name'))
+tesai garera post request garko xa vani post vanera  dictionary pni aauxa hai so  request vitra yedi ani pahila suru tw hamile value linu paryo ni user le pathako ani balla data create garni honi tw arko print garnum description yaha name vma description xa textarea ma ma xa so  description key vanera aauxa ya aba web ma gayear Todo name ma Do homework ani description ma math  status ma done ani submit gardah do homework nai math aayo terminal ma tesai gari arko gari status  name ma status xa so submit gardah chai terminal ma 1 vanera aako kina vani  yo hamro fronted ma yo option ma value done ra notdone xa ani 1 ra 2 xa tei vayera representation chai fronted ko sttaus bata hunxa actual value chai yaha define vako xaynini haru ko value chai represtent ma aai raxa ani value chai hamile kina done not done rakhi raxau vani hamro database ma chooices yesari nai xa ni tw   database ma jastoh value xa testai rakhnu parni hunxa kina vani data base ma create gardah error aauxa yo option nai xaina vanera  aba maile request garxu  aba chai terminal ma aayo vlue k xa tei nai key ma basera auaxa 
+ani hamro value vaneko chai done ra ndone vayo ani key chai status vayo  like value chai option ma hunxa ani key chai select hunxa value vitra j xa ni tyo chai as a value basxa  so hamile status get gardah ni yo status  chai key hunxa ani value chai hamile select garni hunxa option ma tesko value basxa 
+csrf system chai chrome bata gari rako hunxa ni so project crome ma run gari raxa ni   tyo token lai call garna chai function call garnu parxa csrf token
+fronted chai client sanga interact garxa ni tw so fronted le yo token liyera backend lai pathai dinu paryo backend lai chahenxa yo user chai bvalid ho real ho yo system authntication ya login garera chalai raxa aba ahile tw  hami sanga login k he xaian so aafai generate hunxa yo tioken pass garna ko lagi chai function csrf_token gareko yo chai funstion ho yesle chai cookies baseko csrf token lai chai pass garxa request sanga    django le automaticall check garxa 
+check gardah feri valid  ho vani yedi django le create gareko token ho vani chai  post allow gardinxa  
+aba cookies bata csrf detele garyo vani forbidden aauxa 
+
+# error of csrf
+so jopai tei  jaba mero session id vanni kura arkai xa yo token vanni arkai xa csrf token vanni arkai xa yini haru sab authentication ko kam ho sakesamma hamro system lai secure garna ko lagi  django  chai euta powerful secure  security ramro  vannu ko karan yo ho yesle session id dinxa token dinxa session login gardah feri create huni ho hamro login  bases hoina yo chai automatically generate hunxa tei anusar le csrf token generate hunxa 
+forbidden aayo vani chai home lai reload garni ani feri create lai reload garni karan chai kina  csrf token create gareko vani chai maile chai euta mobile banking system xa ani maile login gari re kastoh samma haking hunxa vani  maile login gari re aru le mero session use garera uni  haru pni login huna mi;xa mero account ma so aba tyo loginsession le mero account ma login garera transist garna milxa aafno account ma paisa pay garnu vaneko pos request garnu ho jun chai high level ko herna  tw milla usle mero paisa hamile tesko lagi ni secure garnu parxa token generate garnu parxa so security ko hisab le chai csrf generate hunu parxa   generate vako token lai chai backend ma pathau na ko lagi chai ahmile  fronted ko create ma function call gari rako ho  simply post request gardah feri method post hunu paryo form ma ani csrf hunai paryo   hamile every single key ko value liyem ni user le  diyeko data liyem ni aba create garnu paryo aba create garni hoina ni tw terminal ma aba telai hamile 
+variable banau ni aba views.py ko create ko print lai hatayera tesma variable rakhdini aba hamile k agareko xam vani terminal ma li raam ni tw tei vayera 
+
+print(request.POST.get('name'))
+     name=request.POST.get('name') 
+     description=request.POST.get('description')
+     status=request.POST.get('status')
+     yaha hamile query garnu parxa jati ota pni table ma  object xa table ma tyo object lai lerauna query garnu parxa  mathi hamile variable banayera object.all gareu tesari nai tala pni create ma pni create gardah query ggarnu parxa tesko lagi hamile Todo vanni class call garni ani esma .objects.all()tesma objects vanni method xa jun chai object manager ho tesma euta method xa create vanera yo create methode le chai k garxa vani jun table ma yo create ,ethod call garyo ni tya nira cahi object create gardinxa  create method le chai parameter linxa   yo class ko table j j field required xa tyo as a parameter lina todo ma k k xa name description xa ani status xa ani hamile class ma rakheko name ra create ko parameter ko name same hunu parxa  tesai garera value pass garnu paryo user le pathako so name vanera key xa tyo chai class ho ani tesko value chai mathi banako variable ho 
+Todo.objects.create(name=name,description=description,status=status) hamile querylai  variable kina store narakheko hamile aba all gardah feri chai  variable ma store gareko xau ni kina vani data lai create garni ho data lai get garni hoina  data lai dekhauni hoina data lai backend ma rakhni ho backend ma  rakhdae xa avni hamile variable marakhera hamile context ma pathai rakhnu tw parena data lai dekhau ni kam vaye matra context ma pathauni tara yo vanni sath hamile variable rakhna namilni hoina jaba  object create hunxa ni taba create vako object pni return huna variable ma rakhna milxa hamro model ma models.model vayera pobject properties vako tesma chai  create vanni method xa hamile objects bata nai query garni ho sabai  object tanni ho objects bata eeuta object create garna lai object create gardah tyo table ma tyo object haru ko lagi blue print xani tyo chai as a parameter lina xa
+yedi maile arko table banayera create garem vani tesko field chai parameter hunxa paramater ma value chai k pass gardini jun chai tyo  object ma rakhna lako ho 
+hamile create ma gayera do home work gareu yo tw terminal ma aayo ani aba database ma pni aaisakeko hunxa hamile create vako object variable ma pnis tore gari raxam
+ aba hamile home ma gayera baram bar reload gari rakhnu parxa create ma name haru halepaxi aba yestoh like ba create ma garni bittikai home ma aafai dekhos garna lai yestoh garna lai chai view ma aayera render  paxi , diyera redirect garni redirect tw functon ho 
+hamile k garnu paryo vandah ni redirect funstion use garnu paryo hamro url ma home samma rakheko thiyem aba naya kura thapum name='home' name vanni kura le chai k hunxa vani define hunxa url views ko lagi ani tempalte ko lagi yo home/ chai web ma define hunxa ani name=home vanera chai url define hunxa template ra views ko lagi ho or system ko lagi use huni ho project ko lagi use huni ho kahile kahi chai k hunxa vani url/path lai chai project btai call garnu parni hunxa web bata call garnu ko lagi chai home/ vayo ani  tesle yo function hit garxa home/ ani project lai call garna cahi name= home vanera define gareko xa aba views ma jani ani redirect function lai return garyo tes ma hamileto vanni parameter jasle chai kahanira redirect garni vanera linxa redirect function ma ani tyo url ko name use garera aba url ko name pni unique huniu paryo tala ra mathi nai url ma home rakhyo vani hit hunnxa so anme chai xutta xuttai rakhnu parxa aba home jasko name xa tesko url chai hit huni vayohamro system bata nai telai return gardah j response aauxa tei hit huni vayo  aba web gayera hamile create ma redirect garyo vani aafai reload hunxa link rakhna milxa hamile goto home type ko navigar=tion part ma garxau teso lagi a link thapaxau yo tag chai link tag ho jasle chAI certain url lai hit gardinxa html bata  euta link nai rakhdini jasle chai ekai choti homepage ma jaus 
+<a href=''> <home page> yesari rakhyo vani chai hami web ma cgayera create ma gayru vani  hamile top ma homepage vaanera dekhna sakxau hanile  euta url tw hit garnu paryo tesko lago chai  href vitra chai {% url 'home' %}
+<a href=' {% url 'home' %}'> <home page> yo chai create.html ma ho yo chai method ko mathi  yo rakhyo vani chai web ma gayera create ma gayo vani homepage ma click garyo vani home janxa sidae  so yedi hamilae template bata nai url lai hit garnu xa vani  website bata mathi search bar bata hoina template bat ani views call garnu xa vani url lai call garnu xa vani url ko name lai call garnu parni hunxa  jasatoi to= home vanera redirect ma call gareu aba html file call gardah  feri chai href quattaion vitra {%%}vitra garnu parni hunxa  url vaneko euta function ho jasle chai tyo path lai hit garxa josko chai home  vanera ya jun name xa tyo define garera   yo chai euta quattion mai rakhni ho kina vandah  a tag  ho a tag le matra link lai hit garxa aru lai gardai na hamile link lai hit garnu xa url lai hit garnu xa vani a tag nai chahenxa  hamile todo ko home.html ma pni banau na milyo home.html vaneko chai index.html ho hamile yesma pni link banau na milxa tyya ko h1 tag tala patti a tag halera hamile {% url 'create'%}
+
+<a href=' {% url 'create' %}'> <Create page> yo garera url function lai call garera tyo ko euta name linxa ani name vako url lai chai hit garxa kina ki hamile yehe system haru lai hit garna ko lagi hamile name xuttai diyera tesko lagi ceate garnu parxa matlab url ma gayera  tya ptha ko last ma name ='create' rakhnu parxa yo chai yehe system lai hit garna ko lagi
+
+
+hmaile hamro project ma create garni part pni gareu ani arko vaneko list garni part pni gareu hamro crud operation hunu parxa backend ma absepaxi hamro main focus  k ho vandah model banayepaxi admin ma hame paxi first priority k ho vnadh view ma crud ho so every table ko lagi crud operation chahenxa  hamile crud  operation c ra r gari sakeu create ra retrip retrip vaneko list garni part aba hamro  k problem xa vani yo website ma sano problem hamro yo create ra home ko link xa ni tyo ali ramro vako xaina navigation bar xaina yo website ma user le tw  link click garera yet auta janxa ramro navigation bar vayo vani web ma pni ramro dekhxa ni tw jastai ki  zoom ma herim price and pricing ma click garyo vani tei web ma janxa testai navigation bar banau na khojum jati ota page xa ni tesma ma navigate garum  navigation bar vaneko chai page haru ma navigate garni ho ani tyo page ma janu ho jaba hamile  click gareu vani tyo page ko navigation banau nu ho garni navigation bar banam navigation ko lagi pni hamile bootstrap use garxum ani boootstrao ma jani ani docs ma jani search bar ma nav  garni bittikai nav bar aauxa tya click garnin ani hamilai jastoh navigation bar halxau testai navi bar choose garni title matra vako navigation bar aafu le choose garera herni search wala bar chai api ma garaula ahile  chahedae na search bar  navako choose garim copy garera index.htnml ra create.html ma rakheu vani tya dekhauxa hai vanna le maile todo lai hatayera tya nira nav ko paste gardim ani tya nira navbar vaneko xa ni tya chai application ko name rakhni aba hamro tw todo xa so TOdO rakhni a tag wala class xa ni tya nira chai  ToDo vanera rakhdim reload garim vani navigation part aayo aba kura k aayo vani ahmile index ma navi bar lagayem tara create ma tw aayena ni navi bar kina vani hamile navigation part xani index.html ma haldeu tara yo code create.html ma xaina  hamile zoom ma gayera herdah tw navigation part sab ma aauxa ni tw every page ma navi bar hunu paryo ni tw  euta bata arko ma jadah feri tyo page ma pni navi bar hunu paryo ni tw aba hamile yaha tw index ma gareu ani index ma matra aako xa create ma aako xaina navi bar
+arko ma pni navi bar chaheyo vani ki create ma pni navi bar halna sakxau kitw hamile copy garera paste garna milyo harek page ma kita html html file banayo navegate lai dedicate garna lai tyo every html gile lai chai navigate file ma link garnu paryo hai tyo garum hai tw template ma arko new file banayem navbar.html vanera  tespaxi tyo file ma gayera h:5 click garyo html ko part titel ma k he rakhnu pardae na kina ki yo euta page hoina navi bar ho ani aba navbar ko hamile choose gareko code copy garni ani paste garni navibar ma save garni  index.html ma navi ko code xaina aba home page ma gayeu vani create page vanni matra xa web reload gardah feri so hamile link garnu paryo tyo kasari garni vani dekhi hamile python ko function lai call garnu parxa aba body ko tala gayera tya nira {% include 'navibar.html' %} yesma chai navi bar lai call garui raxa include vanni function le  aba hamile lai create.html file ma pni chahenxa navi bar aba tya pni paste garni aba hamro kunai folder ma nai navbar xa vani tyo folder call garera/ diyera navbar lekhnu parnni hunxa  {% include 'folder/navibar.html' %}  yestoh garera garni navi bar tw rakheu include garera python ko django ma matra include garnu milxa tara pni home ma jadah pni  kahi jadae na features ma click gardah pni click hunna so integrate garni part akhai xa display garni part tw sakeu k gareu  nav bar ma gayera halka change hanum
+  brand ko lagi application ko lagi todo vanni tw rakheu tesai gari dherae kura xa dherae kura ma k k xa  vani home pricing disabled xa 4 ota a tag xa hai  div vitra div vaneko container ho jasle chai group garxa html code haru lai ani tyo div vitra chai 4 ota a tag xa <a></a> a tag ko kam chai link use garxa jasma chai tya ko word ya character lai click garyo vani chahi tyo thau ma pugaxau hami home xa features xa pricing xa ani disabled vanni xa tya chai ali dhamilo xa  tyo  4 ota ho hamro web ma home pricing featurs  disabled chheni hota hoina ni so aba  todo page lai create garna tw create xa ni tw tyo rakhni so aba pricing pni chahe dae na ani hamilae disabled pni chehedae na  reload gardah home ra create aaauxa aba home  vanni pni chahedae na kina vani  aajkal ko navigation part ma home vanni hudae na hamro application name dekhnibittikai tei nai ho home  brand name nai home page vayo home ko lagi chai navigation rakhnu pardae na create ko lagi chai parxa home ko hatayo  todo ma click gardah feri home ma aaunu paryo ani create ma click gardah create garnu paryo yestoh garna chai hamile link rakhnu milxa ani link ma redirect hunxa jaba tyo a tag vitra vako lai click garxam so todo ma click gardah home ma janu payo so aba django ma link rakhni kura xuttai xa yesma k garnu parxa vani {} bracket vitra chai percentage rakhera url vanni function call garxautyo function ma chai url ko name rakhxau jun chai redirect hunu paryo jaba tya click garxau so home janu paryo home  vanni url page xa jun chai home page ko lagi ho tesai gari create ma click gardah chai create ma janu paryo aba tya create ma gayera {%url'create'%} yesari garni aba todo ma jadah home page ma gayo ani create ma jadah create page ma janxa   aba create vanni link pni chaheyena homepage vanni pni chahe yena so yo link lai delete gardim index ra create ko url banako  tyo delete gardim kina ki hamile navigation part ma rakhi sakkeo xau tye create ma click gardah create ma aauxa ani todo ma click gardah todo ma aauxa so navigate hudae xa  one page to another hamile creud ko create ra list ya retrip part gari sakim aba update ra delete part baki xa aba hamile chai k garnu paryo vani update ko part garnu paryo hamro object done womework wala done ra not done update garni part garnu paryo . existing data lai change garnu nai update ho aba yesko lagi chai naya views banau nu paryo every single operation ko lagi every single vies banxa edit vanera euta view banayem ani edit vaneko nai update ho tesma return render  garim ani edit gardah pni eyuta page hunu paryo jaha chai   hamile chai html ma if else rakhna milxa vani aba hamile create.html mai render gardim edit gardah feri kin avani hamilai testai page chahenxa tara kam chai xuttai garxam  create.html mlai render garni view banaye yesko lagi url pni chaheyo so url ma gayera views ko edit import garnu paryo  aba paxi gayera dherae ota view banau nu parxa ani ek ek ota views banau na jhau hunxa simply star * rakde paxi sabai aauxa (from .views import *) url ma star vaneko chai every thing views page ma j j aauxa tyo chai url page ma aauxa aba  path('edit/',create,name='edit') yo part rakhni  ani aba index.html ma jau first head thapxu action vanera hamro table ko ma ani web ma action vanera aauxa ani tya nira edit ra delete thapxau ani edit click garni bittikai tyo data chai change hunu paryo action vanera euta column thapyo aba rom am k rakhni vandah feri jati choti loop lagauxau loop lagaudah feri data haru basxa list hunxa so every data ko lagi chai maile euta button render garxau jun chai ho edit button ani yo chai action ko muni aauxa hamile every head ko lagi every single data define gardinxau euta  row ma ani yo row chai every choti  for loop laudah feri create hunxa so id ko lagi id wala data name ko lagi name wala data  description ko lagi description wala data ani status ko lagi status wala data  action ma chai edit wala dataani hamile td vitra button rakhnu parxa natra error aauxa  every head ko lagi chai every single td rakhnu paryo t data  yo gardah chai every single object ma edit aayo aba button lai nai ramro banau nu paryo vani bootstrap ma gayera  button vanera search garni variants haru xa  edit ko lagi chai yelow wala button copy gari ani  tya paste gardim row ma ani name chai hamro warning hoina edit ho so edit vanera rakhdim save garim aayo edit vanera tyo edit button click gardah tyo render hunu paryo tyo data ma edit click gardah render hunu paryo yo data ko every single value aaunu paryo teslai  change garera save gardah chai edit hunu paryo aba button click gardah tyo page render hunu paryo vanesi 
+tyo  kasari garni link lai hit garna a tag use garxau so hamile button ko vitra pni a tag rakhna milxa 
+            <td><button a type="button" class="btn btn-warning"><a href="{% url 'edit' %}">Edit</a></button> yesrai rakhni ani edit garna milyo url chai edit wala ho page chai create page nai ho render ma hamile create gape nai rakheko xau tara render chai hamro edit wala ho paxi gayera change garxau button vitra pni a tag rakhna milxa a tag rakhera chai tyo edit  wala lai hit garna ko lagi url rakheko ho so href vitra url edit garni  next step ma chai k aauxa vani kura yo data ma edit click garxau ni tyo data ya laready exist data chai aaunu paryo edit gardah  cahange garnu paryo vanesi hamile exist data lai chai track garnu paryo kun  data lai change garna lako ho user le so jaba hamile url hit garxa taba hamile tyo data ko unique kura liyera locate garna milxa ani hamro every single data ma unique kura k ho vanijale chai tyo data locate garxa hamro backend ma every single data ma k un
+aba hamile create ko data lai click gardah feri edit ko  tyo box ma value aaunu paryo ni telai change garera submit gardah feri check hunu paryo ni so teso  vaye hamile yo edit ko button click gardah feri yo  data travk hunu paryo ni backend ma change gardah feri yo data lai track garna ko lagi hamile unique kura linu  paula ni tw fronted bata tyo unique kura k ho  yo data ma jati pni value xa ni tesma unique kura xa unique euta field xa jasle chai tyo data locate hunxa  id ko kura gareko jun chai unique hunxa jasle chai every single object chai identify hunxa tei vanrya euta object lai delete garyo vani y tyo id pni complete delete hunxa so id lim fronted bata  yo object lai edit garna lako ho vanera backend le tha paunu parxa id lina ko lagi k garnu parxa vani jun url hit garxa ni tyo  url ma chai paramater thapnu parxa so maile url ma gayera    path('edit/<int:pk>/',edit,name='edit'),
+/ garera less than greater than gari<>tya vita  int:pk vanera rakhni hamile asti samma jati pni url banako ho tyo chai change nahuni  simply euta ani ahile chai hamile k gareko vani edit url click gardah edit vanni name tw hunu paryo / garera euta  greate ra less than symbol vitra int: pk rakhim so  yaha nira chai pk vanni euta paramater generater vayo jasle chai integer vanni value linxa static value hoina integer value linxa  edit vaneko chai static data ho ani jun <> yo vitra xa  integer:pk  primary key paramater ho jasle  chai integer value dini vayo value linxa aba hamile fronted bata value pathaunu paryo kunchai id ko value change garna lako ho vanear tesko lagi   jun url edit gareko thiyeu ani pk=i.id garni hamro pk chai paramater banako thiyeu ni urls ma intrger pk vanera yesle chai integer value lini vayo jun chai id hunxa jas bata chai  objcet identify hunxa jaba edit url hit hunxa ni taba pk paramater ma chai hamile object ko id pass garnu paryo jABA hamile object ko id pass garna lathiyo taba for  loop laudah feri  jun object honi tesko id pass garni honi tw  jun object ma edit xa tyo object ko edit ma click gardah feri tyo object ko id pass hunuparyo so i. id i vaneko chai loop iterate vayera aauxa baseko object vayo ani id attridute vayo object ko id attribute call gardah feri bahira html hudah feri chai {{}} i.id garnu parthiyo tara ahile python ko code vitra nai object ko id call garnu pardah chai parena  maile {{}} bracket rakhera chai error aako without {{}} gardah chai i.id chai python ko code vitra vayera chai {{}} %% use gardah feri chai hamile i.id gardah feri chai object ko id lina milyo ani edit ma click gardah chai / ma 4 aairaxa yo error chai solve garxau ani 4 id vaneko chai tei ko data ko id ho  hamilr tyo id chai linu paryo backend ma linu paryo hamro views xa ni urls bata hit hunxa jun ma chai id aauxa tesma chai euta oparamater thapnu paryo pk  ani pk ko lagi k garnu paryo vani print pk  kina pk [paramater ya extra paramater rakhnu parxa vani first ko paramater is always for request second ko paramater kin a rakhya vani  yo jun value hunx ajun chai  urls ma aauxa int:pk  yo value pni pass hunxa k tei vayera error aako so pk banera chai paramater linu parxa  ya aru vanera jun chai url le pass garxafronted bata aako id print gardah id aaunai parxa  kina vani hamile paramater rakhdim unexpected argument banena yedi hamro paramater le value lidae na vani pass gardah tw error aauxa tara url le pk pass vanera lirako xaina ya dynamic value pass gareko xaina vani teti kheraerror aauxa print gardah 1 vanera aayo edit ra data ko page lai render gardini aba hamile  create.html mai edit garna lakox xau ani create.html mai data create garna lako xau yo html eutai vaye pni hamile k garnu paryo different kam garnu paryo pahila suru  chai hamile id payeu fronted bata tyo id ko object nikalum jun part lai chai edit garna lako hoaba query garnu paryo objeect vanera variable banaidim so todo_object =ToDo .objects.get(id=pk)  ToDo chai table ho jaha chai object haru xa todo ko jun lai chai hit garna lako xa teslai call garera objects  jun chai object manager ho properties ho jun ma chai get vanni queryxa get vanni method xa jasle chai query garxa yo query chai k ho vani  get vanni query le chiai paramater ma value linxa aba yo paramater xa ni yo table ma vako jati ota pni field xa ni tyo huna milxa id field xa name field xa description field xa ani description field xa  jun pni field xa ni tyo yaha  views ma rakhna milyo edit ko yaha maile id rakhe kina vani get le k garxa vani yo id paramater table ko fie;d ma pk value match huni object lai limxa yo value jun chai fronted bata aairaxa ni jastai 1 aairaxa ni so sabai object ko id herxa ni aba jasko id 1 xa ni teslai chai liyera return gardinxa tara maile arko field pni rakhna milxa paramater ma chai id matra hoin anme pni rakhnxa milxa jati ota field xa teti ota rakhna milxa tara maile name rakhi re aba fronted bata name tannu paryo re aba yo get query le k garni vayo vani jasko name chai fronted le pathako xa ni tyo chai match hunxa ki nai tyo chai get garera return garni vayo taramero ma todo ma name unique a tew xaina ni  do homework chai oathai diyeu re as a paramater  tyo yaha aayo re  get le chai euta object tanna khojxa tara tya nira chai dherae object aayo hamile get query ma chai euta object aauni gari matra  garnu parxa id bata tw euta matra objecct aauni gari matra paramater ma value rakhnu parxa  unique wala  aba maile get ma chai email rakhnu paryo re yesko lagi chai hamile email ma email=pk gardah get le chai euta object matra aauxa get le cahi euta matra object linxa dherae aayo vani error dinxa  tyo object vetum html ma render garum html lai render ggardah tw create.html xa html file chai dynamic vayo aba  content vanera euta variable banayem ani  dictionary ma rakkhdim {'method':'edit'} hamile create.html ko paxadi content=context gardim haya views ma method chai key ho ani create.html ma aaudah chai variable banaxa yedi method edit ho vani yaha create.html ma from xa ni start ma chai {% if method ==edit %} ani form ko last ma{% endif%} aba hamile views bata jun object lai pathako ho teslai chai render gardinxau aba views ko edit ko content ma edit paxadi, diyera 'object':todo_object lai call gardinxa multiple keys ma multiple values pass garna milxa html  render gardah feri  create.html ma aayera inputname ma value value vanni euta paramater hunxa jasle chai value rakhdinxa automatically user sanga nali kina khali hudae na value={{object.todo_name}} yeti garum aba yaha  duita form aayo kina ayo aba create ma gayo vani euta matra aauxa but todo ma chai diuita airaxa edit click gardah chaiduita form gairaxa render gae raxa aba k garum vani euta endif paxi arko rakhum{% if method == 'create' %}  hamile same copy garnu parxa form ani euta ma if method layera method == 'edit' rakhim ani arko chai if method layera method== 'create' rakhdim teti khera chai create ko form render garumani {% endif %} garni yo chai form ko bahira hunxa aba create garni bela chai yo khali wala form render garni aba teti khera chai hamro create  vanni function bata pathaunu paryo context aba create view hit hudah feri method pass huni vayo ani create .html ko create run huni vayo ani tesai gari edit ko hit hudah feri method pass hui vayo create run hudae na 
+
+
+hamile pahila suru index.html ma button vanni tag haleu jun chai fronted ma dekhxau  yo chai kina rakheko vani every object iterate hudae table row create hudae janxa ni  for loop layera table create hudae janxa ni tesko data add hudae janxa so every object ra every data ko lagi button generate vaus vanera hamile  tr ko vitra row ko vitra table data rakheko xau k hudae xa vani hamile for loop layera table row haru create gardae xau so every object ko lagi  table row ho jun ko chai every data haru ko tabel row xa  ani table row ma hamile data haru rakheko xau ani tyo data ko value haru lai id name description status tyo pni column anusar rakheko xau 
+ ani tes paxi hamile nayo column thapeu Action vanni yo chai kina vani every object ko row ma chai  edit button chaheyo jaslai click garesi form aaus create kholxa ani tesma chai sabai value haru vaus  jun chai tyo data ko xa yo todo  doyour homehork  not done tesma edit click gareu click gardah feri TOdO name chai todo vanera aayo hamile name matra rakheko xau as a value ani button aayo every object ko lagi hamile buttton rakheko vayera tyo chai td vitra hunu parxa natra ramro sita aaudaina table data vanera rakhnu parxa tyo vitra hamile button rakhyo ani button ma hamile link rakhyo a tag a tag vaneko link ho ani a tag vitra data hunxa ni tyo chai link banxa teslai click garyo vani chai certain page kholxa button lai nai a tag vitra rakhum tyo rakhyo vani chai aba buttion edit ma chai underline aako xaina aba jun jun chai a tag vitra parxa ni tyo chai euta link hunxa k ani tesma click garesi chai euta certain link hit hunxa tyo link chai html vitra define garni aba yaha nira  django ma chai link arkai tarika le rakhxau hoina hamile <a href="{% url 'edit' pk=i.id  %}"/a> yesari curle bracked vitra % garera tya vitra url function call garera  edit lai pass garxau so name kin apass gareko vani hamro edit ma click gardah chai edit ko url hit hunu paryo edit ko url le edit ko function run garxa ani tyo function le edit ko page lai render gardinxa tya nira edit ko kam haru pni gardinxatei vayera  hamile edit ko url xa ni tesko name lai chai jaba edit ko button click garxa taba  hit gardina rakheko  yaha nira k kura arko aayo vani hamile jun object ma edit button click gareko honi tyo object chai backend ma thaha hunu paryo  so kun object chai update  garna lako ho tyo chai backend lai tha hunu parxa so that backend  le chaiyo object ko yo value   change garni vanera data base ma change gardinxa tesko lagi chai object ko unique key primary key(pk) pass gardi raxau url ma  pk vaneko id ho euta object ho id ho id chai unique hunxa every single  object ko id unique hunxa  so euta id le chai table macahi euta data chai define vako hunxa vanna le todo  table ma chai todo ko data haru ma 1 id vanera euta matra xa aba arko table xare manum arko table xa re profile aba rakotable ma jati pni  data xa ni tesma 1 id vanni hunxa nai 1 id bata suru hunxa table anusar id chai unique hunxa euta table ma chai id unique hunxa so tyo id chai pass garnu parxa tyo id le tha pauxa ki kun data lai chai update garna lako ho so url ma chai paramater rakhni <int:pk>/ yo chai url ko paramater ho greater ra less then ko symbol vitra int:pk pk vaneko chai paramater name ho ani integer le chai paramater ko kun value define garxa vanera yaha string rakhdah pni hunxa so hamile paramater ma value pass garnu paryo jun data ma edit button click garxa tespaxi yo html ko link hit hunxa button wala ani tyo data ko id  link pni pass hunxa aba yaha html ma {} feri use garnupardae na pk:i.id garna lai kina vani hamro python ko code vitra nai variable lai call ani object ko attribute lai call gari raai i.id yedi fully html vitra hamile  object attribute call gardah chai double curle bracket use gareko xau call garna lai but python ko code vitra nai call gardah chai  double curle bracket chahedae na yo garesi jaba edit url hit hunxa taba  chai jun data ko edit url hit hunxa tyo data ko id pass hunxa urls ko pk paramater ma aba url le k garxa vani dekhi  yaha nira j value aauxa ni pk ma   teslai edit ko paramater vitra pass gardinxa so yo views ko edit function ma hamile  parathensis vitra euta paramater  thapnu parxa  ani hamile thapeu pk kina vani url le pass gardinxa yedi hamile pk liyena vani error aauxa  so hamile linai milxa url ma define gareko xa vani  tyo url le  jun view lai hit gareko tyo view lai paramater (pk j name rakhdah pni hunxa hae) dinai parxa tes paxi tyo id payepaxi tyo object lai tanepaxi teslai chai edit garna lako hamilai tw caheni euta object ho all query garna milxa tw mildae na ni tw kina ki todo.objects.all()le tw  class ko todo ko object sabai lerauxa ni tw sabai lai tw update garni hoina ni tw euta matra update garni ho so tesaile hamile naya query gareu get koget le chai k garxa vani euta specific field (id:pk) id vaneko chai table ko field ho yo field  ma pk value ma match huni object lai chai lerauxa table bata  get query le ani get le jahile pni euta matra data lerauxa  so id ok ma 4 aayo re 4 vako id chai euta matra hunxa so id tw unique hunxa  tyo euta matra lerauxa  tara maile yaha name vanera rakhi  name vani pnie euta field xa tebut name tw unique xaina ni tw so get le jaba manum ki pk ma do home work aayi re  get le todo ma vako field euta matra data nikalna lako but dohomework vanni tannai xa so kun field ma query hunxa vanra hernu parxa ra tyo field chai unique hunu parxa jastai ki id euta certain id chai euta object ma matra hunxa  edit/<int:pk>/ yo chai hamile web browser ma call garni vayo function hit garna ko lagi arko chai name=edit chai system lai hitgarna ko lagi view ma hamile redirect gareko xau ni redirect gardahchai  html file bata call garnu paryo vani hamile teti khera chai url call gardah name use garxau
+yo jun url ma edit xa ni tesle chai url ko name =edit lai hit garxa ya edit function lai hit gardinxa ani tay nira pk vanni paramater pni xa ni tw pk=i.id haldinxa 
+todo_object = Todo.objects.get(id=pk)yo chai hamile query gare ko ho hamile chai database ma table lyaunu  paryo vani database ma table create garnu paryo vani teti khera chai hamile query use garxau ahmile create home ma query garim niedit ma gareu yaha chai specific data jun chai user le edit garna lako xa tyo lyauna ko lagi pni hamile query use garim hamile aba kura aayo eutai html file ma duita gako xa ni tw edit ra create ko hamile create.html ma hamile create garni pni rakheko xai edit garni pni rakheko xau  hamile naya html file banayera pni gardah hunxa hamile chai same form copy garera dita form banayem create.html masab same xa duita form  tara yini haru le kam xuttai garxa create le chai yo input haru khali rakhxa naya input liyera submit garxa ani naya data ccreate garxa aba edit wala form le chai  yaha jun object edit garna lako ho tyo object ko purano value lai display gardinxa tespaxi jun purano value hunxa teslai chai change garera  submit gardah chai object ma tyo change hunxa duita begla belai xa tei vayera  hamile jaba edit view le html file lai render garxa ni taba hamile content ma method pass gardi raxau edit le ani object pni pass gardi raxau todo_objects hamile if keyword layera create.html ma {%%} vitra yedi method jun chai yaha html ma aaudah variable banxa ani method ko value chai edit xa vani ani endif {% if method == 'edit'%}garni last ma yedi method  ko value chai create xa vani hamile {% if method == 'create'%} garera rakhni hamile create ko function ma pni method pass gari raxu tei vayera  so yo html file le chai method j xa tei anusar le behave garxa  edit method hudah feri html ko form ma k aauxa object pni aauxa view bata object vanera pni aauxa so hamile create.html ma tyo object lai dekhaunu paryo re render garnu paryo re so input ma todo name ko input ma  purano value dekhaunu paryo so todo name ko input ma value = {{object.todo_name }}name garim r quatationmarakhnu parxa ani yo gardah chai jaba edit click gareu ni taba toddo name ma  do homework vanera aayo tesai gari description ma description ma rakhna chai dscription text area ho tesma chai value vanera rakhna mildae na hamile text area ko parathensis ma {{}} quattion use garera tes vita objectdescription vanera lekhni ani reload garyo ani tya description ma science hw not done aae raxa purano ani tesai gari select ma chai different xa ststus ko lagi chai hamile selected vanni code use garnu parni hunxa kasari selected garni tw done lai selected rakhni ki not done lai selected rakhni tw vandah feri yedi hmaile {%%} use garnu paryo option value vandah mathi ani {% if object.status == 'Done' %}yedi object.ststus ma hudah done xa vani teslai option value ma gayera  Done paxadi selected rakhdini ani same not done ko lagi
+{% elif object.status == 'Not Done' %} xa vani done ko paxadiselected rakhdini but error aayo kina aayo vani if lai end garnu parni hunxa aba hamile web ma gayera done wala edit ma gayeu purano status done nai xa aba not done wala edit ma gayeu not done nai xa tara tya nira not done ko not done nai xa ani done ko done nai xa change garnu mileko xaina yesko lagi chai done selected vaye pni not done chai hunu paryo change garla ni tw done bata not done ani not done bata done tesile hami  done rakhnai paryo not done ma ani done not done m adone rakhnu paryo  but selected lai chai hataunu paryo aba  yaha samma dekhauni part samm amtra vako xa change tw vakai xaina ni kina vani hamile database ma change huni part garekai xaina hamile object lai vetauni paryo  object lai vetayera display garni part pni garim input ma display garnu xa vani value rakhni textarea ma display garnu {{object.description}} xa vani text area ko vitra rakhdini ani select ma chai yedi status done xa vani  selected done ralhdini ani not done xa vani not done rakhdini submit gardah feri ajhai vako xaina form ma hamile submit click garyio vani kaha nira janxa yedi hamile chai yo form method form yeslai submit garyo vani yo jati pni data haru xan cahnge garera yo chai kaha janxa  views ma janxa yeslai create function le render gareko ho so yo function le render garesi yo function le html fime render gareko create.html le yesle post method gardah feri create function lae nae url lae hit nagari kina views ko create function lai request garxa ahile chai k hunxa vani method hunxa hamile method  rakheko xa ni post vanera ani post vanera rakhnu parxa kina vani hamile  hptp request gari rako hunxa fronted le backend lai backend lai vani rako hunxa kastoh method chai  banau  na lako vanera create gardah feri post rakhni nai ho edit gardah pni post rakhdah hunxa nai csrf chai kina rakheko vani hamile user valid xa ki nai vanera ho check garna ko lagi   yo chai rakhnai parxa method vanera aauni vayo kina vani method pass gareko xa form ma tei anusar le request ma chai post chai as a dictionary aauxa post method gardah feri  ani tesma chai jati pni tya nira input haru xa tini haru ko name j j xani teini haru chae key base rako hunxa name status desccription status key hunxa  hamro 
+
+method vanera aauni vayo kina vani method pass gareko create.html form ma  tei anusar le request ma chai post chai as a dictionary aauxapost method gardah feri ani tesma chai name discription ststus as a key aauxa
+
+ create(request):
+    if request.method=='POST':# url request hit gardah request method hit hunna so hamile if condiition lagako
+      name=request.POST.get('name') # bracket ma vako name des status cahi key hunxa ahi
+      description=request.POST.get('description')
+      status=request.POST.get('status')
+
+edit ma ni tei ho create.html render vako xa so yo create.html le render garyo vani taba chai  edit ma render gardah feri taba chai edit ma request aauxa ani request ma chai dherae kura aauxa  ani data haru pni hunxa hami check garum yedi  request method chai post ho vani ahile ko lagi print garum
+ 
+request.post.get(name) name chai get kasari gareko vani  post method gardah feri  post vanera dictionary aauxa request ma  tyo dictionary vitra chai  key ra value ma basi rako hunxa evry single input create.html ko ko name  yesko name k xa name paramater name xa name="name" aagadi ko name chai paramater ho ani paxadi ko chai as a key ho hai key hunxa tesma tei value value="{{object.name}}" ani valuechai yehe  haleko xa so tei huna so tesai garera description  chai text area jasle chai description linxa print gardim  aba web ma gayera submit gardah do your hoomework vanera terminal ma aako xa  aba yini haru lai print garni hoina yini haru lai liyera hamile purano data lai change garni ho name vanera variable ma rakhi description vanera variable ma rakhi  aba purano value lai change garera nnaya haldah feri change tw vako xaina tyo naya value haldah tw kata gako xa tha xaina ni so aba 
+
+jaba create.html file edit bata render vako xa  yesle jaba post request garxa ni jaba change garxa ani post garxa ni taba chai   taba chai post request pass garxa tehi  view ma jaha bata render vako ho post request gardah feri chai method pass hunxa post vanera  so hamile telai check  garni yedi method post ho vani kina check garni vani yedi method method post o vani request ma chai post vanera dictionary aauxa  tyo dictionary taba aauxa jaba method post  aauxa tei vayera hamile condition lako condition layera post dictionary bata hamile get gari rako every single input ko value every single input ma value rakheko xa  
+every single input ma name rakheko xa tyo name lai call garni tyo name nai key baseko hunxa ani tes vitra value hunxa jun chai user le haleko hunxa  tyo value vaneko nai change gareko value ho change kasrai garni yaha nira hamile jaba get gareko xau ni yo get gardah feri object tw pai sakeu aba object pai sakeu vani tyo object ko todo_object.name= name   yo chai todo_object ko attribute  ko value change gardini attribute lai call garni naya value rakhdini arko attribute description xa description ko value change gardini 
+attribute description lai call garbni views ma
+todo_object.description=description testai gari status ma todo_object.status=status aba yaha nira chai yeti garera hudae na data base sanga related vako xa yo object so last ma todo_object.save() vanni euta method hunxa models.model ma jasle chai  database ma nai change gardinxa tyo object ko value so yeslai call garni todo_object.save() hamile jasar create gardah feri  redirect gareko thiyeu home ma tesrai nai  edit ma pni yestai gardini hamile j change garyo tyo vayo
+yedi hamro edit ko j change garyo vae rako xa 
+
+
+
+ todo_object.name=name(.name xa ni yo chai model ko field ho)
+    todo_object.description=description
+    todo_object.status=status
+
+# ani status ma chai name status xa value jun select gareko xa tei ho 
+    todo_object.name=name#(.name xa ni yo chai model ko field ho ani= name chai variable ho hamile mathi left hand ko j lekhyo tei lekhni ho aba name=request.POST.get('name') lai chai name variable ko name chai new_name lekhyo vani tala right part ko =name lai pni new_name rakhnu parni hunxa ) ani arko kura left ma chai jaba object ko attribute lai call garxau ni tyo attribute chai object ma  vako field nai ho right handside ma chai value pass garni ho
+    # tesai garera yo key haru chai kaha bata aayo vani get gardah feri jati pni input xa  create.html ma tes ma vako name haru ho like name= name xa name= description xa ani status ma chai name status xa value jun select gareko xa tei ho  yehe bata ho key aako ani status ma chai hamile value rakhna mildae na  sidae option lai select garni ho yedi object ko status done xa vani done lai selected ani not done xa vani not selected wala code rakhxa so  selected chai render hunxa  select chai navako render hunna nai elif chai rakhnu parxa kina vani yo python o area hoina so keyword lai end garnu parxa
+    todo_object.description=description
+    todo_object.status=status
+    todo_object.save()
+    return redirect(to='home')
+
+   content={'method':'edit', 'object':todo_object} 
+   return render(request,'create.html',context=content)
+
+
+name=request.POST.get('name') yo jun hamile get garera 
+name lai call gari raxau ni  yo chai create.html ma rkaheko name ho  name==name name=description yo hamro input ko ntext xa ni tesma name = name ya name= dessssssssssssssssssssssssscription navanera rakhni parxa vanni xaina name=description xa ni description le id define garn ho yo tag lai chai as a key identify  garni ho jaba post request gardah  post key gardah chai as a key define hunxa yo name  yesma j value hunxa ni yo chai tesko value hunxa  so name rakhnu ko karan yo ho edi rakhena vani key nai basdae na request.post ma  post chai dectionary hunxa ani tesma chai name vanera key nai basdae na  yesko value tannai milena name=name xa yo aagadi ko name chai variable ho ani paxadi ko chai key ho ani value ={{}} yo vitra chai value ho  yo name rakhena vani user le k pathako tha nai hunna simply key define gareko ho yaha nira aauni value kolagi name =name paxadi ko name nai raknu parxa vanni xaian aru name rakhda pn hunxa  ani uta create.html o value ma object chai kata bata aayo vani yaha dectionary ma object xa views.py ko content varuiabale ma  hamile yehe value nikalna ko lagi nai hamile name  key rakheko ho 
+
+    description=request.POST.get('description')
+post chai dictioanry ho  tesma get garyo name  key ani get le chai object retuern garni kam garxa  tesko value aauxa ani description xa ni value tesma pni j rakhdah pni hunxa  variable tara
+todo_object.description=description yo = paxadi ko attribute ra variable same hunu parxa ami . description chai field ko ya sidai oop ho object attribute lai call gareko j attribute xa teslai call gareko case sensitive hunxa so  ani value ma chai j hamile key bata  get raxau teslai hamile rakhni ani save methoda vanera euta hunxa  jun chai models.model ma xa tesle  chai database ma change gardinxa tyo object ko change lai  so relation chai tyo hunxa  name ko relation chai k hunxa vani  jaba post request hunxa yo create.html ko name chai as a key basxa  value ko lagi user le haleko  value ko lagi hamro post disctionary hunxa tesma chai key baseko hunxa  hamile tes bata value nikalni get garerac
+hamile khali rakhna mildae na field ra value lai
+ 
+
+
+  
+
+
+  
+  

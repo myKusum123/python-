@@ -253,45 +253,53 @@ Django chai fullstack ho fronted pni garna milxa backend pni garna milxa but ham
 # Backend development
 The process of developing backend of a website jati pni data related kam chai website ma euta user ko plan name haru store garxa develop garxa teslai nai backend vanxa
 backend le chai website ko part lai store garxa control garxa create garxa delete garxa teslai nai backend development vanxa
-# Fronted Development- hamile dekhna sakau and interreact garna milxa touch kholna etc
+signin signout  plan haru hunxa buy garna milxa user le jati pni data related user ko plan package store garni signout sign in user ko garna milni sabai backend ma parxa
+# Fronted Development- hamile dekhna sakau and interreact garna milxa touch kholna , image, button color ,transisition haru
+
 # Process
 -planning- (requirement collection)aba euta k he kura develop garnu xa kunai app ko k he kura banau nu xa vani hami le planning garxau k k chahenxa tesma vanera
 -Designing-Er diagram, flow diagram
-1.Er diagram-jati pni data base table haru banxa ni backend banaudah tyo sab ko design ho 
-2.flow diagra-- kasari data haru create garni
+1.Er diagram-jati pni data base table haru banxa ni backend banaudah website ko tyo sab ko design ho 
+2.flow diagram- kasari data haru create garni
 -programming-python(programming language)and django(framework-tool ho jaslai use garera certain kura build garxau)
--Debugging
--Deployment
-# Django- python,web framework
+-Debugging-banau dah sabai kura mileko hunna so hamile plan gardah banauni kk kura haru meleko xa ki nai vanera check garni lai debugging vanxa or is the process of finding and fixing errors or bugs in the source code of any software
+-Deployment-yo vaneko chai live gareni ho jasle pni certain live ma basera hamro asscess garna paus
+
+# Django- python,web framework(framework vaneko chai euta tool hoo jun chai programming language dwara  use hunxa jaslai use garera certain kura use hunxa jastai website build garxau )
 #Templates(fullstack)-fronted -todo project
 #API(Backend)-(Inventry Management system)-both frontend ra backend communicate garna ko lagi api use hunxa
+two communicate with each other using requests and responses.
 
 #Battery included framework
 #Fullstack-MVT(Model View Template)
-#Model-Database implementation (database-it is a actual place where we can store the data)-database ma k k hunxa ani feld kastoh kastoh hunxa
+#Model-Database implementation (database-it is a actual place where we can store the data)-database ma k k hunxa ani field kastoh kastoh hunxa # data base ma chai table hunxa according to data aba user ko stroe garnu paryo  user ko table and aba product ko store garnu paryo product ko table 
 #View-Data controller(create, delete, calculate)
 #Templete-Fronted, fronted  data implementation
 
-#API-backend ra fronted lai communicate garna help garxa
+#API-backend ra fronted ko data lai communicate garna help garxa
 #serializer-converts object into json format(yedi hamile backend bata fronted ma data pathai raxau vani json format ma pathau nu parxa)(yedi hamile fronted bata backend ma data pathai raxau vani json format ma pathau nu parxa json format ma lana chai serializer vanni compomnent aafai create garera use garxau )
- 
+ pip- python install gardah taba yo install vako euta module ho yesle chai package manage garxa aru framework download gardah pip install django garxau
 to download django
+
+django ko project banau na hamile django use garxau
 cmd- pip inatsall Django  
-#env- environment ho josle module haru store garxa project ma
+#env- environment ho josle module haru store garxa project ma hamile jati pni module haru install garxau teslai store garxa env le 
 c:
 cd Users\Dell\Documents\python
 cd test
-django-admin starproject ToDo (- startproject vanni command use garera django ko project start garxau and ToDo chai name define gareko ho ToDo ma space hunu vayena
+django-admin startproject ToDo (- startproject vanni command use garera django ko project start garxau and ToDo chai name define gareko ho ToDo ma space hunu vayena
 cd ToDo
 python manage.py runserver- yo vaneko chai hamro project lai server ma run gareko
 tes paxi yo aauxa  http://127.0.0.1:8000/- yo chai hamile yo project  chalaunjel samma matra run garna milxa
 and hamile ctrl break garyo vani yo 127.0.0.1:8000 local server  mA run gareko pni janxa
 tespaxi
-install virtualenv-yesle chai env module create garxa
+pip install virtualenv-yesle chai env module create garxa
 virtualenv kusum (or env)- 
-env\scripts\activate
+env\scripts\activate- yedi hamile folder ko name xuttai rakheko xa vani like abc name rakheko xa vani abc\scripts\activate garnu parxa
 pip install django- project ma djanjo chahene vayera  install vayo
 
+-env kina use garxau?( env chai as a container use hunxa)
+env use nagari pip install jun module install gardah oni hunxa but testoh garyo vani globally install hunxa kaha hunxa module vanera tha hunna so env install garyo vani locally tei env vitra module haru download hunxa and tha hunxa kaha xa vanera
 
 
 Git init-jun folder ya project lai git ma halnu parni ho jasko change  hARU TRACK GARNU XA tyo folder ma gayera git init garni. yo garesi yo folder chai git initialized vayera git ko reprository banxa 

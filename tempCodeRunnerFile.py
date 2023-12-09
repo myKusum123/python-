@@ -1,0 +1,1 @@
+cd Users/Dell/Documents/python/
